@@ -20,13 +20,32 @@ export function ContactForm() {
     initialState,
   )
   const [startedAt] = useState(() => String(Date.now()))
+  const attempt = state.attempt ?? 0
+  const [dismissedFor, setDismissedFor] = useState(attempt)
+  const [dismissed, setDismissed] = useState<Set<string>>(new Set())
+
+  if (dismissedFor !== attempt) {
+    setDismissedFor(attempt)
+    setDismissed(new Set())
+  }
+
+  function fieldError(name: string) {
+    if (dismissed.has(name)) return undefined
+    return state.fieldErrors?.[name]
+  }
+
+  function dismiss(name: string) {
+    setDismissed((current) => {
+      if (current.has(name)) return current
+      const next = new Set(current)
+      next.add(name)
+      return next
+    })
+  }
 
   if (state.status === "success") {
     return (
-      <div
-        className="rounded-2xl border border-border bg-card p-6 sm:p-8"
-        role="status"
-      >
+      <div role="status">
         <p className="text-lg font-medium">Message received</p>
         <p className="mt-3 leading-relaxed text-muted-foreground">
           {state.message}
@@ -37,6 +56,13 @@ export function ContactForm() {
 
   return (
     <form action={formAction} className="space-y-5" noValidate>
+      <div>
+        <h2 className="text-xl font-semibold tracking-tight">Send a message</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Tell us what you need help with. We will review your enquiry and
+          follow up with next steps where appropriate.
+        </p>
+      </div>
       <input type="hidden" name="startedAt" value={startedAt} />
       <div className="hidden" aria-hidden="true">
         <label htmlFor="website">Website</label>
@@ -46,7 +72,7 @@ export function ContactForm() {
       <Field
         id="name"
         label="Full name"
-        error={state.fieldErrors?.name}
+        error={fieldError("name")}
         required
       >
         <Input
@@ -56,15 +82,16 @@ export function ContactForm() {
           required
           maxLength={100}
           className="h-11"
-          aria-invalid={Boolean(state.fieldErrors?.name)}
-          aria-describedby={state.fieldErrors?.name ? "name-error" : undefined}
+          aria-invalid={Boolean(fieldError("name"))}
+          aria-describedby={fieldError("name") ? "name-error" : undefined}
+          onChange={() => dismiss("name")}
         />
       </Field>
 
       <Field
         id="email"
         label="Email address"
-        error={state.fieldErrors?.email}
+        error={fieldError("email")}
         required
       >
         <Input
@@ -74,8 +101,9 @@ export function ContactForm() {
           autoComplete="email"
           required
           className="h-11"
-          aria-invalid={Boolean(state.fieldErrors?.email)}
-          aria-describedby={state.fieldErrors?.email ? "email-error" : undefined}
+          aria-invalid={Boolean(fieldError("email"))}
+          aria-describedby={fieldError("email") ? "email-error" : undefined}
+          onChange={() => dismiss("email")}
         />
       </Field>
 
@@ -83,7 +111,7 @@ export function ContactForm() {
         id="phone"
         label="Phone / WhatsApp"
         hint="Optional"
-        error={state.fieldErrors?.phone}
+        error={fieldError("phone")}
       >
         <Input
           id="phone"
@@ -91,15 +119,16 @@ export function ContactForm() {
           type="tel"
           autoComplete="tel"
           className="h-11"
-          aria-invalid={Boolean(state.fieldErrors?.phone)}
-          aria-describedby={state.fieldErrors?.phone ? "phone-error" : undefined}
+          aria-invalid={Boolean(fieldError("phone"))}
+          aria-describedby={fieldError("phone") ? "phone-error" : undefined}
+          onChange={() => dismiss("phone")}
         />
       </Field>
 
       <Field
         id="service"
         label="Service / reason for contact"
-        error={state.fieldErrors?.service}
+        error={fieldError("service")}
         required
       >
         <select
@@ -107,8 +136,9 @@ export function ContactForm() {
           name="service"
           required
           defaultValue=""
-          aria-invalid={Boolean(state.fieldErrors?.service)}
-          aria-describedby={state.fieldErrors?.service ? "service-error" : undefined}
+          aria-invalid={Boolean(fieldError("service"))}
+          aria-describedby={fieldError("service") ? "service-error" : undefined}
+          onChange={() => dismiss("service")}
           className={cn(
             "h-11 w-full rounded-lg border border-input bg-transparent px-2.5 text-base outline-none transition-colors md:text-sm",
             "focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
@@ -129,7 +159,7 @@ export function ContactForm() {
       <Field
         id="message"
         label="Message"
-        error={state.fieldErrors?.message}
+        error={fieldError("message")}
         required
       >
         <Textarea
@@ -140,8 +170,9 @@ export function ContactForm() {
           maxLength={5000}
           rows={6}
           className="min-h-32"
-          aria-invalid={Boolean(state.fieldErrors?.message)}
-          aria-describedby={state.fieldErrors?.message ? "message-error" : undefined}
+          aria-invalid={Boolean(fieldError("message"))}
+          aria-describedby={fieldError("message") ? "message-error" : undefined}
+          onChange={() => dismiss("message")}
         />
       </Field>
 
@@ -151,13 +182,9 @@ export function ContactForm() {
         account recovery or a particular outcome.
       </p>
 
-      {state.status === "error" && !state.fieldErrors ? (
-        <p className="text-sm text-destructive" role="alert">
-          {state.message}
-        </p>
-      ) : null}
-
-      {state.status === "error" && state.fieldErrors ? (
+      {state.status === "error" &&
+      (!state.fieldErrors ||
+        Object.keys(state.fieldErrors).some((key) => !dismissed.has(key))) ? (
         <p className="text-sm text-destructive" role="alert">
           {state.message}
         </p>
@@ -204,7 +231,7 @@ function Field({
       </div>
       {children}
       {error ? (
-        <p id={errorId} className="text-sm text-destructive" role="alert">
+        <p id={errorId} className="text-sm text-destructive">
           {error}
         </p>
       ) : null}

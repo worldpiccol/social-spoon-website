@@ -9,6 +9,7 @@ export type ContactState = {
   status: "idle" | "success" | "error"
   message: string
   fieldErrors?: Record<string, string>
+  attempt?: number
 }
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -17,6 +18,12 @@ const ALLOWED_SERVICES = new Set(contactReasons.map((reason) => reason.value))
 function readString(formData: FormData, key: string) {
   const value = formData.get(key)
   return typeof value === "string" ? value.trim() : ""
+}
+
+function result(
+  state: Omit<ContactState, "attempt">,
+): ContactState {
+  return { ...state, attempt: Date.now() }
 }
 
 export async function submitContact(
@@ -35,28 +42,28 @@ export async function submitContact(
   })
 
   if (!limited.success) {
-    return {
+    return result({
       status: "error",
       message:
         "Too many messages were sent from this connection. Please wait a few minutes and try again.",
-    }
+    })
   }
 
   const honeypot = readString(formData, "website")
   if (honeypot) {
-    return {
+    return result({
       status: "success",
       message:
         "Thank you. Your message has been received. Our team will review it and respond as soon as possible.",
-    }
+    })
   }
 
   const startedAt = Number(readString(formData, "startedAt"))
   if (Number.isFinite(startedAt) && Date.now() - startedAt < 2000) {
-    return {
+    return result({
       status: "error",
       message: "Please take a moment to complete the form before sending.",
-    }
+    })
   }
 
   const name = readString(formData, "name")
@@ -95,11 +102,11 @@ export async function submitContact(
   }
 
   if (Object.keys(fieldErrors).length > 0) {
-    return {
+    return result({
       status: "error",
       message: "Please check the highlighted fields and try again.",
       fieldErrors,
-    }
+    })
   }
 
   const payload = {
@@ -125,9 +132,9 @@ export async function submitContact(
     })
   }
 
-  return {
+  return result({
     status: "success",
     message:
       "Thank you. Your message has been received. Our team will review it and respond as soon as possible. Please do not send passwords or authentication codes.",
-  }
+  })
 }

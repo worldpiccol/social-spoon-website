@@ -79,13 +79,6 @@ export default function ContactPage() {
         </div>
         <div className="lg:col-span-7">
           <div className="rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-8">
-            <h2 className="text-xl font-semibold tracking-tight">
-              Send a message
-            </h2>
-            <p className="mt-2 mb-8 text-sm text-muted-foreground">
-              Tell us what you need help with. We will review your enquiry and
-              follow up with next steps where appropriate.
-            </p>
             <ContactForm />
           </div>
         </div>
