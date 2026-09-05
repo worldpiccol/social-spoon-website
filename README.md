@@ -9,6 +9,20 @@ Professional website for **Social Spoon**, a digital solutions company helping i
 - Tailwind CSS
 - shadcn/ui
 
+## Brand colours
+
+Extracted from the official logo artwork:
+
+| Token | Hex | Use |
+| --- | --- | --- |
+| Cyan | `#5DD4DF` | Wordmark, pin, buttons, highlights |
+| Navy | `#000120` | Page background (colour logo) |
+| Deep blue | `#070D3A` | Cards and muted bands |
+| Indigo | `#232B5B` | Borders, inputs, secondary surfaces |
+| Black | `#000000` | Header, hero, footer (black logo) |
+
+These live in `src/app/globals.css` and `src/content/brand.ts`. Logo files are in `public/brand/`.
+
 ## Local development
 
 ```bash
@@ -33,8 +47,6 @@ Copy `.env.example` to `.env.local` and fill in values when they are available:
 | `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata, sitemap, and Open Graph |
 | `NEXT_PUBLIC_SUPPORT_EMAIL` | Public support email. Leave empty until the full address is supplied |
 
-Theme colours, fonts, and spacing live in `src/app/globals.css` as CSS variables so they can be changed in one place.
-
 Site copy, navigation, and social links live in `src/content/`.
 
 ## Missing client details
@@ -42,14 +54,12 @@ Site copy, navigation, and social links live in `src/content/`.
 These are intentionally not invented:
 
 - Full support email
-- Logo file
-- Official brand colours and fonts
 - Testimonials
 - Terms & Conditions body copy
 - Privacy Policy / Cookie Policy
 - Business address, phone number, pricing, and registration details
 
-The logo is a replaceable text treatment in `src/components/logo.tsx`. The Terms page is a placeholder. Testimonials stay hidden until real reviews are added to `src/content/testimonials.ts`.
+The Terms page is a placeholder. Testimonials stay hidden until real reviews are added to `src/content/testimonials.ts`.
 
 ## Contact form
 

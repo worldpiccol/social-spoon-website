@@ -18,7 +18,7 @@ export function Section({
       id={id}
       className={cn(
         "py-16 sm:py-20 lg:py-28",
-        tone === "muted" && "bg-muted/60",
+        tone === "muted" && "bg-muted",
         tone === "ink" && "bg-ink text-ink-foreground",
         className,
       )}

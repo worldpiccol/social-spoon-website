@@ -1,10 +1,10 @@
+import Image from "next/image"
 import Link from "next/link"
 import { cn } from "cn"
 import { SITE_NAME } from "@/content/site"
 
 export function Logo({
   className,
-  invert = false,
 }: {
   className?: string
   invert?: boolean
@@ -13,30 +13,19 @@ export function Logo({
     <Link
       href="/"
       className={cn(
-        "inline-flex items-center gap-2.5 rounded-md focus-visible:outline-offset-4",
+        "inline-flex items-center rounded-md focus-visible:outline-offset-4",
         className,
       )}
       aria-label={`${SITE_NAME} home`}
     >
-      <span
-        aria-hidden="true"
-        className={cn(
-          "flex size-8 items-center justify-center rounded-md text-[0.7rem] font-semibold tracking-wide",
-          invert
-            ? "bg-ink-foreground/10 text-ink-foreground"
-            : "bg-primary text-primary-foreground",
-        )}
-      >
-        SS
-      </span>
-      <span
-        className={cn(
-          "text-[0.78rem] font-medium tracking-[0.2em] sm:text-[0.82rem]",
-          invert ? "text-ink-foreground" : "text-foreground",
-        )}
-      >
-        SOCIAL SPOON
-      </span>
+      <Image
+        src="/brand/social-spoon-wordmark.png"
+        alt="Social Spoon"
+        width={360}
+        height={120}
+        className="h-9 w-auto sm:h-10"
+        priority
+      />
     </Link>
   )
 }

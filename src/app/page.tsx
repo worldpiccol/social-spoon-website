@@ -23,7 +23,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Section>
+      <Section tone="muted">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeading
@@ -69,7 +69,7 @@ export default function HomePage() {
           </FadeIn>
         </div>
       </Section>
-      <Section tone="muted">
+      <Section>
         <SectionHeading
           eyebrow="Company strengths"
           heading="What Sets Us Apart"

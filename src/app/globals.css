@@ -53,47 +53,46 @@
 }
 
 /*
-  Theme tokens — change these values to rebrand.
-  Official brand colours have not been supplied; this palette is a
-  temporary professional default (warm paper, navy ink, deep teal).
+  Official Social Spoon palette from the logo PDFs:
+  cyan #5DD4DF, navy #000120, deep blue #070D3A, indigo #232B5B, black #000000
 */
 :root {
-  --background: oklch(0.972 0.008 82);
-  --foreground: oklch(0.22 0.025 250);
-  --card: oklch(0.995 0.004 82);
-  --card-foreground: oklch(0.22 0.025 250);
-  --popover: oklch(0.995 0.004 82);
-  --popover-foreground: oklch(0.22 0.025 250);
-  --primary: oklch(0.3 0.045 175);
-  --primary-foreground: oklch(0.98 0.008 85);
-  --secondary: oklch(0.94 0.01 82);
-  --secondary-foreground: oklch(0.22 0.025 250);
-  --muted: oklch(0.945 0.01 82);
-  --muted-foreground: oklch(0.46 0.02 250);
-  --accent: oklch(0.94 0.012 82);
-  --accent-foreground: oklch(0.22 0.025 250);
-  --destructive: oklch(0.55 0.2 27);
-  --border: oklch(0.89 0.014 82);
-  --input: oklch(0.89 0.014 82);
-  --ring: oklch(0.3 0.045 175);
-  --ink: oklch(0.2 0.028 250);
-  --ink-foreground: oklch(0.97 0.008 82);
-  --gold: oklch(0.7 0.08 78);
-  --gold-foreground: oklch(0.28 0.04 78);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --background: #000120;
+  --foreground: #e8fbfc;
+  --card: #070d3a;
+  --card-foreground: #e8fbfc;
+  --popover: #070d3a;
+  --popover-foreground: #e8fbfc;
+  --primary: #5dd4df;
+  --primary-foreground: #000120;
+  --secondary: #232b5b;
+  --secondary-foreground: #e8fbfc;
+  --muted: #070d3a;
+  --muted-foreground: #9ec9ce;
+  --accent: #232b5b;
+  --accent-foreground: #5dd4df;
+  --destructive: #f07178;
+  --border: color-mix(in srgb, #5dd4df 18%, #000120);
+  --input: #232b5b;
+  --ring: #5dd4df;
+  --ink: #000000;
+  --ink-foreground: #e8fbfc;
+  --gold: #5dd4df;
+  --gold-foreground: #000120;
+  --chart-1: #5dd4df;
+  --chart-2: #9ec9ce;
+  --chart-3: #232b5b;
+  --chart-4: #070d3a;
+  --chart-5: #000120;
   --radius: 0.75rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.3 0.045 175);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.145 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: #000120;
+  --sidebar-foreground: #e8fbfc;
+  --sidebar-primary: #5dd4df;
+  --sidebar-primary-foreground: #000120;
+  --sidebar-accent: #070d3a;
+  --sidebar-accent-foreground: #5dd4df;
+  --sidebar-border: #232b5b;
+  --sidebar-ring: #5dd4df;
 }
 
 @layer base {
@@ -105,6 +104,7 @@
     @apply font-sans;
     overflow-x: clip;
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {
@@ -117,7 +117,7 @@
   }
 
   ::selection {
-    background: color-mix(in oklch, var(--primary) 18%, transparent);
+    background: color-mix(in srgb, var(--primary) 28%, transparent);
   }
 }
 
@@ -166,8 +166,8 @@
 
 .hero-grid {
   background-image:
-    linear-gradient(to right, color-mix(in oklch, var(--ink-foreground) 5%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklch, var(--ink-foreground) 5%, transparent) 1px, transparent 1px);
+    linear-gradient(to right, color-mix(in srgb, var(--primary) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--primary) 10%, transparent) 1px, transparent 1px);
   background-size: 72px 72px;
 }
 
