@@ -3,11 +3,11 @@
  * logo artwork (social-spoon.pdf and social-spoon-black.pdf).
  *
  * Cyan wordmark + pin: #5DD4DF
- * Colour-logo background: #000120
- * Pin icon details: #070D3A, #232B5B
- * Black-logo background: #000000
+ * Navy (logo background, used for type on light pages): #000120
+ * White: page, header, cards, footer
  */
 export const brand = {
+  white: "#FFFFFF",
   cyan: "#5DD4DF",
   navy: "#000120",
   deepBlue: "#070D3A",

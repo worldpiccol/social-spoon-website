@@ -2,7 +2,7 @@ import { ButtonLink } from "@/components/button-link"
 import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
 
-export function CtaSection({ invert = true }: { invert?: boolean }) {
+export function CtaSection({ invert = false }: { invert?: boolean }) {
   return (
     <Section tone={invert ? "ink" : "muted"}>
       <div className="max-w-3xl">

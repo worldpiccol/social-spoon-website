@@ -15,7 +15,7 @@ export function FeatureCard({
   return (
     <Card
       className={cn(
-        "h-full border-0 bg-card shadow-none ring-1 ring-border transition-shadow hover:ring-primary/50 hover:shadow-[0_12px_32px_color-mix(in_srgb,var(--primary)_16%,transparent)]",
+        "h-full border-0 bg-white shadow-[0_8px_30px_rgba(0,1,32,0.06)] ring-1 ring-border transition-shadow hover:ring-primary/50 hover:shadow-[0_16px_40px_rgba(0,1,32,0.08)]",
         className,
       )}
     >

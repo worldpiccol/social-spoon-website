@@ -78,7 +78,7 @@ export default function ContactPage() {
           </div>
         </div>
         <div className="lg:col-span-7">
-          <div className="rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-8">
+          <div className="rounded-2xl border border-border bg-white p-5 shadow-[0_8px_30px_rgba(0,1,32,0.06)] sm:p-8">
             <ContactForm />
           </div>
         </div>

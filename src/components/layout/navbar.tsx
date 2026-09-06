@@ -23,9 +23,9 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink-foreground/10 bg-ink text-ink-foreground">
+    <header className="sticky top-0 z-40 border-b border-border bg-white/90 text-foreground backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:h-[4.25rem] sm:px-6 lg:px-8">
-        <Logo invert />
+        <Logo />
         <nav
           className="hidden items-center gap-1 lg:flex"
           aria-label="Primary"
@@ -42,8 +42,8 @@ export function Navbar() {
                 className={cn(
                   "relative rounded-md px-3 py-2 text-sm tracking-wide transition-colors",
                   current
-                    ? "text-ink-foreground after:absolute after:inset-x-3 after:bottom-1 after:h-px after:bg-gold"
-                    : "text-ink-foreground/70 hover:text-ink-foreground",
+                    ? "text-foreground after:absolute after:inset-x-3 after:bottom-1 after:h-px after:bg-primary"
+                    : "text-muted-foreground hover:text-foreground",
                 )}
                 aria-current={current ? "page" : undefined}
               >
@@ -53,7 +53,7 @@ export function Navbar() {
           })}
         </nav>
         <div className="hidden lg:block">
-          <ButtonLink href={primaryCta.href} size="lg" variant="inverse">
+          <ButtonLink href={primaryCta.href} size="lg">
             {primaryCta.label}
           </ButtonLink>
         </div>
@@ -63,24 +63,17 @@ export function Navbar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-ink-foreground hover:bg-ink-foreground/10 lg:hidden"
+                className="text-foreground hover:bg-muted lg:hidden"
                 aria-label="Open menu"
               />
             }
           >
             <Menu className="size-5" />
           </SheetTrigger>
-          <SheetContent
-            side="right"
-            className="bg-ink text-ink-foreground border-ink-foreground/10"
-          >
+          <SheetContent side="right">
             <SheetHeader>
-              <SheetTitle className="text-ink-foreground">
-                Social Spoon
-              </SheetTitle>
-              <SheetDescription className="text-ink-foreground/65">
-                {SITE_TAGLINE}
-              </SheetDescription>
+              <SheetTitle>Social Spoon</SheetTitle>
+              <SheetDescription>{SITE_TAGLINE}</SheetDescription>
             </SheetHeader>
             <nav className="flex flex-col gap-1 px-4" aria-label="Mobile">
               {navLinks.map((link) => {
@@ -96,8 +89,8 @@ export function Navbar() {
                     className={cn(
                       "rounded-lg px-3 py-3 text-base transition-colors",
                       current
-                        ? "bg-ink-foreground/10 text-ink-foreground"
-                        : "text-ink-foreground/80 hover:bg-ink-foreground/10",
+                        ? "bg-muted text-foreground"
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground",
                     )}
                     aria-current={current ? "page" : undefined}
                   >
@@ -107,7 +100,6 @@ export function Navbar() {
               })}
               <ButtonLink
                 href={primaryCta.href}
-                variant="inverse"
                 className="mt-4 w-full"
                 size="xl"
                 onClick={() => setOpen(false)}

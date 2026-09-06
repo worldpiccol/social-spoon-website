@@ -78,15 +78,12 @@ export default function HomePage() {
           <FeatureGrid />
         </div>
       </Section>
-      <Section tone="ink">
+      <Section>
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <SectionHeading
-              invert
-              heading="When Your Digital Presence Is at Risk"
-            />
+            <SectionHeading heading="When Your Digital Presence Is at Risk" />
           </div>
-          <FadeIn className="space-y-5 text-base leading-relaxed text-ink-foreground/75 sm:text-lg lg:col-span-7">
+          <FadeIn className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-7">
             <p>
               Your Instagram or Facebook account can represent years of
               content, customers, connections, revenue and brand equity.
@@ -101,7 +98,7 @@ export default function HomePage() {
               available options, and take the appropriate steps toward
               resolving them.
             </p>
-            <p className="text-ink-foreground/90">
+            <p className="text-foreground">
               We work within each platform’s policies and processes. Social
               Spoon does not bypass platform security or override platform
               decisions.

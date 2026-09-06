@@ -11,15 +11,15 @@ Professional website for **Social Spoon**, a digital solutions company helping i
 
 ## Brand colours
 
-Extracted from the official logo artwork:
+Extracted from the official logo artwork and applied on a light site:
 
 | Token | Hex | Use |
 | --- | --- | --- |
+| White | `#FFFFFF` | Page, header, cards, footer |
 | Cyan | `#5DD4DF` | Wordmark, pin, buttons, highlights |
-| Navy | `#000120` | Page background (colour logo) |
-| Deep blue | `#070D3A` | Cards and muted bands |
-| Indigo | `#232B5B` | Borders, inputs, secondary surfaces |
-| Black | `#000000` | Header, hero, footer (black logo) |
+| Ice | `#E8FBFC` / `#F4FBFC` | Soft section bands |
+| Navy | `#000120` | Headings and body type |
+| Black / navy | `#000000` / `#000120` | Hero artwork wash only |
 
 These live in `src/app/globals.css` and `src/content/brand.ts`. Logo files are in `public/brand/`.
 

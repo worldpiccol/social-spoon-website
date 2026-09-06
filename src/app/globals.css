@@ -53,45 +53,46 @@
 }
 
 /*
-  Official Social Spoon palette from the logo PDFs:
-  cyan #5DD4DF, navy #000120, deep blue #070D3A, indigo #232B5B, black #000000
+  Light Social Spoon palette:
+  white pages, navy type, cyan from the logo (#5DD4DF).
+  Navy #000120 and black are reserved for hero artwork and dark bands.
 */
 :root {
-  --background: #000120;
-  --foreground: #e8fbfc;
-  --card: #070d3a;
-  --card-foreground: #e8fbfc;
-  --popover: #070d3a;
-  --popover-foreground: #e8fbfc;
+  --background: #ffffff;
+  --foreground: #000120;
+  --card: #ffffff;
+  --card-foreground: #000120;
+  --popover: #ffffff;
+  --popover-foreground: #000120;
   --primary: #5dd4df;
   --primary-foreground: #000120;
-  --secondary: #232b5b;
-  --secondary-foreground: #e8fbfc;
-  --muted: #070d3a;
-  --muted-foreground: #9ec9ce;
-  --accent: #232b5b;
-  --accent-foreground: #5dd4df;
-  --destructive: #f07178;
-  --border: color-mix(in srgb, #5dd4df 18%, #000120);
-  --input: #232b5b;
+  --secondary: #e8fbfc;
+  --secondary-foreground: #000120;
+  --muted: #f4fbfc;
+  --muted-foreground: #3d4a6b;
+  --accent: #e8fbfc;
+  --accent-foreground: #000120;
+  --destructive: #c23b45;
+  --border: color-mix(in srgb, #5dd4df 28%, #e7eef2);
+  --input: color-mix(in srgb, #5dd4df 22%, #e7eef2);
   --ring: #5dd4df;
-  --ink: #000000;
-  --ink-foreground: #e8fbfc;
-  --gold: #5dd4df;
-  --gold-foreground: #000120;
+  --ink: #000120;
+  --ink-foreground: #ffffff;
+  --gold: #1aa7b4;
+  --gold-foreground: #ffffff;
   --chart-1: #5dd4df;
-  --chart-2: #9ec9ce;
+  --chart-2: #1aa7b4;
   --chart-3: #232b5b;
   --chart-4: #070d3a;
   --chart-5: #000120;
   --radius: 0.75rem;
-  --sidebar: #000120;
-  --sidebar-foreground: #e8fbfc;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #000120;
   --sidebar-primary: #5dd4df;
   --sidebar-primary-foreground: #000120;
-  --sidebar-accent: #070d3a;
-  --sidebar-accent-foreground: #5dd4df;
-  --sidebar-border: #232b5b;
+  --sidebar-accent: #e8fbfc;
+  --sidebar-accent-foreground: #000120;
+  --sidebar-border: color-mix(in srgb, #5dd4df 28%, #e7eef2);
   --sidebar-ring: #5dd4df;
 }
 
@@ -104,7 +105,7 @@
     @apply font-sans;
     overflow-x: clip;
     scroll-behavior: smooth;
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   body {

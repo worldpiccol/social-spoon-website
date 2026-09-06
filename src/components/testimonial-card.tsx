@@ -5,7 +5,7 @@ import type { Testimonial } from "@/content/testimonials"
 
 export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <Card className="h-full border-0 shadow-none ring-1 ring-border/80">
+    <Card className="h-full border-0 bg-white shadow-[0_8px_30px_rgba(0,1,32,0.06)] ring-1 ring-border/80">
       <CardContent className="flex h-full flex-col gap-5 pt-2">
         {typeof testimonial.rating === "number" ? (
           <p className="flex items-center gap-1 text-gold" aria-label={`${testimonial.rating} out of 5 stars`}>
