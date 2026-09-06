@@ -2,7 +2,7 @@
 
 import { headers } from "next/headers"
 import { contactReasons } from "@/content/services"
-import { isSupportEmailConfigured, SUPPORT_EMAIL } from "@/content/site"
+import { SUPPORT_EMAIL } from "@/content/site"
 import { rateLimit } from "@/lib/rate-limit"
 
 export type ContactState = {
@@ -118,19 +118,11 @@ export async function submitContact(
     receivedAt: new Date().toISOString(),
   }
 
-  if (isSupportEmailConfigured) {
-    console.info("Contact enquiry for", SUPPORT_EMAIL, {
-      name: payload.name,
-      email: payload.email,
-      service: payload.service,
-    })
-  } else {
-    console.info("Contact enquiry received (support email not configured)", {
-      name: payload.name,
-      email: payload.email,
-      service: payload.service,
-    })
-  }
+  console.info("Contact enquiry for", SUPPORT_EMAIL, {
+    name: payload.name,
+    email: payload.email,
+    service: payload.service,
+  })
 
   return result({
     status: "success",

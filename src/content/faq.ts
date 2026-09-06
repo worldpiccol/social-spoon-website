@@ -88,7 +88,7 @@ export const faqItems: FaqItem[] = [
     id: "get-started",
     question: "How do I get started?",
     paragraphs: [
-      "Choose the service that best matches your situation or contact Social Spoon directly.",
+      "Choose the service that best matches your situation, email support@mysocialspoon.com, or use the contact form.",
       "Our team can help you understand the available options and requirements.",
     ],
   },

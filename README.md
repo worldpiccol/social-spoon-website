@@ -45,7 +45,7 @@ Copy `.env.example` to `.env.local` and fill in values when they are available:
 | Variable | Purpose |
 | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata, sitemap, and Open Graph |
-| `NEXT_PUBLIC_SUPPORT_EMAIL` | Public support email. Leave empty until the full address is supplied |
+| `NEXT_PUBLIC_SUPPORT_EMAIL` | Public support email. Defaults to `support@mysocialspoon.com` |
 
 Site copy, navigation, and social links live in `src/content/`.
 
@@ -53,7 +53,6 @@ Site copy, navigation, and social links live in `src/content/`.
 
 These are intentionally not invented:
 
-- Full support email
 - Testimonials
 - Terms & Conditions body copy
 - Privacy Policy / Cookie Policy
@@ -65,4 +64,4 @@ The Terms page is a placeholder. Testimonials stay hidden until real reviews are
 
 The contact form validates on the server, includes a honeypot, a short time check, and basic rate limiting. It never asks for passwords, 2FA codes, or recovery codes.
 
-Until a mail provider and support email are configured, submissions are accepted and logged on the server rather than emailed.
+Public enquiries can be sent to [support@mysocialspoon.com](mailto:support@mysocialspoon.com). Until a mail provider is wired up, form submissions are accepted and logged on the server rather than emailed.

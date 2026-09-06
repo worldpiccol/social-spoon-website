@@ -7,6 +7,7 @@ import {
   SITE_NAME,
   SITE_SHORT_DESCRIPTION,
   SITE_TAGLINE,
+  SUPPORT_EMAIL,
 } from "@/content/site"
 
 export function Footer() {
@@ -21,6 +22,12 @@ export function Footer() {
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
             {SITE_SHORT_DESCRIPTION}
           </p>
+          <a
+            href={`mailto:${SUPPORT_EMAIL}`}
+            className="mt-4 inline-block text-sm font-medium text-foreground underline-offset-4 hover:underline"
+          >
+            {SUPPORT_EMAIL}
+          </a>
         </div>
         <div className="lg:col-span-2">
           <h2 className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">

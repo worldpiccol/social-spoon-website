@@ -2,12 +2,7 @@ import { ContactForm } from "@/components/contact-form"
 import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
 import { SocialLinks } from "@/components/social-links"
-import {
-  isSupportEmailConfigured,
-  socialLinks,
-  SUPPORT_EMAIL,
-  SUPPORT_EMAIL_PLACEHOLDER,
-} from "@/content/site"
+import { socialLinks, SUPPORT_EMAIL } from "@/content/site"
 import { pageMetadata } from "@/lib/metadata"
 
 export const metadata = pageMetadata({
@@ -37,22 +32,12 @@ export default function ContactPage() {
               <h2 className="text-xs font-medium tracking-[0.2em] text-primary uppercase">
                 Email
               </h2>
-              {isSupportEmailConfigured ? (
-                <a
-                  href={`mailto:${SUPPORT_EMAIL}`}
-                  className="mt-3 inline-block text-lg font-medium underline-offset-4 hover:underline"
-                >
-                  {SUPPORT_EMAIL}
-                </a>
-              ) : (
-                <p className="mt-3 rounded-xl border border-dashed border-border bg-muted/50 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-                  {SUPPORT_EMAIL_PLACEHOLDER}. Set{" "}
-                  <code className="font-mono text-foreground">
-                    NEXT_PUBLIC_SUPPORT_EMAIL
-                  </code>{" "}
-                  when the full address is available.
-                </p>
-              )}
+              <a
+                href={`mailto:${SUPPORT_EMAIL}`}
+                className="mt-3 inline-block text-lg font-medium underline-offset-4 hover:underline"
+              >
+                {SUPPORT_EMAIL}
+              </a>
             </div>
             <div>
               <h2 className="text-xs font-medium tracking-[0.2em] text-primary uppercase">

@@ -7,6 +7,7 @@ import {
   SITE_NAME,
   SITE_TAGLINE,
   SITE_URL,
+  SUPPORT_EMAIL,
   socialLinks,
 } from "@/content/site"
 import "./globals.css"
@@ -70,7 +71,13 @@ const jsonLd = {
   description: SITE_DESCRIPTION,
   slogan: SITE_TAGLINE,
   url: SITE_URL,
+  email: SUPPORT_EMAIL,
   sameAs: socialLinks.map((link) => link.href),
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: SUPPORT_EMAIL,
+    contactType: "customer support",
+  },
 }
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

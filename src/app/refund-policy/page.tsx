@@ -1,5 +1,6 @@
 import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
+import { SUPPORT_EMAIL } from "@/content/site"
 import { pageMetadata } from "@/lib/metadata"
 
 export const metadata = pageMetadata({
@@ -88,7 +89,14 @@ export default function RefundPolicyPage() {
           </ul>
           <p>
             If you have questions about refund terms for a specific service,
-            contact Social Spoon before making payment.
+            contact Social Spoon at{" "}
+            <a
+              href={`mailto:${SUPPORT_EMAIL}`}
+              className="font-medium text-foreground underline-offset-4 hover:underline"
+            >
+              {SUPPORT_EMAIL}
+            </a>{" "}
+            before making payment.
           </p>
         </section>
         <p className="text-sm">Last Updated: [Insert Date]</p>

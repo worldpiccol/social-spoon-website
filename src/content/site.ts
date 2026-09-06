@@ -17,16 +17,13 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "http://127.0.0.1:43123"
 ).replace(/\/$/, "");
 
-/** Incomplete until the client supplies the full address. Do not invent a domain. */
 export const SUPPORT_EMAIL = (
-  process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? ""
+  process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@mysocialspoon.com"
 ).trim();
 
 export const isSupportEmailConfigured = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
   SUPPORT_EMAIL,
 );
-
-export const SUPPORT_EMAIL_PLACEHOLDER = "Support email to be provided";
 
 export const socialLinks = [
   {
