@@ -3,19 +3,19 @@
 import { useEffect, useState } from "react"
 import { cn } from "cn"
 import { ContactButton } from "@/components/contact-popup"
+import { YoutubeEmbed } from "@/components/youtube-embed"
 import type { Service } from "@/content/services"
 
 export function ServiceCard({
   service,
-  featured = false,
   className,
 }: {
   service: Service
-  featured?: boolean
   className?: string
 }) {
   const [flipped, setFlipped] = useState(false)
   const [hoverable, setHoverable] = useState(false)
+  const hasVideo = Boolean(service.youtubeId)
 
   useEffect(() => {
     const media = window.matchMedia("(hover: hover) and (pointer: fine)")
@@ -32,16 +32,15 @@ export function ServiceCard({
   return (
     <article
       id={service.id}
-      aria-expanded={flipped}
       className={cn("h-full cursor-pointer [perspective:1200px]", className)}
       onMouseEnter={() => {
-        if (hoverable) setFlipped(true)
+        if (hoverable && !hasVideo) setFlipped(true)
       }}
       onMouseLeave={() => {
         if (hoverable) setFlipped(false)
       }}
       onFocus={() => {
-        if (hoverable) setFlipped(true)
+        if (hoverable && !hasVideo) setFlipped(true)
       }}
       onBlur={(event) => {
         if (!hoverable) return
@@ -50,34 +49,67 @@ export function ServiceCard({
         setFlipped(false)
       }}
       onClick={() => {
-        if (!hoverable) toggle()
+        if (!hoverable && !hasVideo) toggle()
       }}
     >
       <div
         className={cn(
           "relative h-full transition-transform duration-500 [transform-style:preserve-3d]",
-          featured ? "min-h-[32rem]" : "min-h-[26rem]",
+          hasVideo ? "min-h-[34rem]" : "min-h-[26rem]",
           flipped && "[transform:rotateY(180deg)]",
         )}
       >
         <div className="absolute inset-0 flex flex-col rounded-2xl bg-white p-5 shadow-[0_8px_30px_rgba(0,1,32,0.06)] ring-1 ring-border [backface-visibility:hidden] sm:p-6">
-          <h3 className="text-xl font-semibold tracking-tight text-balance">
-            {service.title}
-          </h3>
-          <p className="mt-4 flex-1 leading-relaxed text-muted-foreground">
-            {service.summary}
-          </p>
-          {service.platforms ? (
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {service.platforms.map((platform) => (
-                <li
-                  key={platform}
-                  className="rounded-full border border-border bg-muted/70 px-3 py-1 text-xs text-foreground"
-                >
-                  {platform}
-                </li>
-              ))}
-            </ul>
+          <div
+            className={cn(!hasVideo && "flex flex-1 flex-col")}
+            onMouseEnter={() => {
+              if (hoverable && hasVideo) setFlipped(true)
+            }}
+            onClick={(event) => {
+              if (!hoverable && hasVideo) {
+                event.stopPropagation()
+                toggle()
+              }
+            }}
+          >
+            <h3 className="text-xl font-semibold tracking-tight text-balance">
+              {service.title}
+            </h3>
+            <p
+              className={cn(
+                "mt-4 leading-relaxed text-muted-foreground",
+                !hasVideo && "flex-1",
+              )}
+            >
+              {service.summary}
+            </p>
+            {service.platforms ? (
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {service.platforms.map((platform) => (
+                  <li
+                    key={platform}
+                    className="rounded-full border border-border bg-muted/70 px-3 py-1 text-xs text-foreground"
+                  >
+                    {platform}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+          {service.youtubeId ? (
+            <div
+              className="mt-5 flex min-h-0 flex-1 items-center justify-center"
+              onMouseEnter={() => {
+                if (hoverable) setFlipped(false)
+              }}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <YoutubeEmbed
+                videoId={service.youtubeId}
+                title={`${service.title} video`}
+                className="mx-auto w-full max-w-[13.5rem]"
+              />
+            </div>
           ) : null}
         </div>
 
