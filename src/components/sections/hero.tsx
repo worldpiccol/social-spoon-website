@@ -4,7 +4,7 @@ import { Container } from "@/components/container"
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
+    <section className="relative isolate overflow-hidden bg-ink">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <Image
           src="/images/hero-digital-network.jpg"
@@ -14,22 +14,23 @@ export function Hero() {
           sizes="100vw"
           className="object-cover object-[86%_36%] sm:object-[80%_34%] lg:object-[74%_32%]"
         />
-        <div className="absolute inset-0 bg-linear-to-r from-ink from-[18%] via-ink/90 via-[48%] to-transparent to-[82%] sm:from-[12%] sm:via-[40%] sm:to-[75%] lg:from-[8%] lg:via-[36%] lg:to-[68%]" />
-        <div className="absolute inset-0 bg-linear-to-b from-ink/70 from-0% via-ink/25 via-40% to-transparent sm:via-transparent sm:from-ink/20" />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-linear-to-r from-black from-0% via-black/92 via-[46%] to-transparent to-[76%] sm:via-[42%] lg:via-black/88 lg:via-[36%] lg:to-[68%]" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-transparent to-black/30 sm:from-black/45" />
       </div>
       <Container className="relative z-10">
-        <div className="max-w-xl py-16 sm:py-20 lg:max-w-[34rem] lg:py-24">
-          <p className="animate-fade-up text-xs font-medium tracking-[0.28em] text-gold uppercase">
+        <div className="relative max-w-xl py-16 sm:py-20 lg:max-w-[34rem] lg:py-24">
+          <p className="animate-fade-up text-xs font-medium tracking-[0.28em] text-primary uppercase drop-shadow-[0_1px_10px_rgba(0,0,0,0.9)]">
             Social Spoon
           </p>
           <h1
-            className="animate-fade-up mt-5 text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-[3.35rem] lg:leading-[1.08]"
+            className="animate-fade-up mt-5 text-4xl font-semibold tracking-tight text-balance text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_28px_rgba(0,0,0,0.85)] sm:text-5xl lg:text-[3.35rem] lg:leading-[1.08]"
             style={{ animationDelay: "80ms" }}
           >
             Digital Solutions. Account Recovery. Digital Growth.
           </h1>
           <div
-            className="animate-fade-up mt-6 space-y-4 text-base leading-relaxed text-ink-foreground/75 sm:text-lg"
+            className="animate-fade-up mt-6 space-y-4 text-base leading-relaxed font-medium text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_22px_rgba(0,0,0,0.8)] sm:text-lg"
             style={{ animationDelay: "160ms" }}
           >
             <p>
@@ -58,7 +59,7 @@ export function Hero() {
             <ButtonLink
               href="/contact"
               variant="outline-inverse"
-              className="w-full sm:w-auto"
+              className="w-full border-white text-white hover:bg-white/10 sm:w-auto"
             >
               Contact Us
             </ButtonLink>
