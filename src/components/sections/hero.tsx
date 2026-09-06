@@ -15,7 +15,7 @@ export function Hero() {
           fill
           priority
           sizes="54vw"
-          className="object-cover object-[80%_28%]"
+          className="object-cover object-[80%_42%] scale-[1.22] origin-bottom-right"
         />
         <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-ink to-transparent" />
       </div>
