@@ -75,7 +75,7 @@ export function ContactButton({
   variant = "default",
   size = "xl",
   onClick,
-  side = "bottom",
+  side = "top",
   ...props
 }: ComponentProps<typeof Button> &
   VariantProps<typeof buttonVariants> & {
@@ -104,7 +104,11 @@ export function ContactButton({
           sideOffset={10}
           collisionPadding={16}
           positionMethod="fixed"
-          disableAnchorTracking
+          collisionAvoidance={{
+            side: "none",
+            align: "none",
+            fallbackAxisSide: "none",
+          }}
           className="z-50"
         >
           <Popover.Popup className="origin-[var(--transform-origin)] outline-none">

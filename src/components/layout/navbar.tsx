@@ -54,13 +54,16 @@ export function Navbar() {
           <ContactButton
             variant="ghost"
             size="sm"
+            side="bottom"
             className="px-3 py-2 text-sm font-normal tracking-wide text-muted-foreground hover:bg-transparent hover:text-foreground"
           >
             Contact
           </ContactButton>
         </nav>
         <div className="hidden lg:block">
-          <ContactButton size="lg">{primaryCta.label}</ContactButton>
+          <ContactButton size="lg" side="bottom">
+            {primaryCta.label}
+          </ContactButton>
         </div>
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
@@ -106,11 +109,12 @@ export function Navbar() {
               <ContactButton
                 variant="ghost"
                 size="lg"
+                side="bottom"
                 className="justify-start px-3 py-3 text-base font-normal text-muted-foreground hover:bg-muted hover:text-foreground"
               >
                 Contact
               </ContactButton>
-              <ContactButton className="mt-4 w-full" size="xl">
+              <ContactButton className="mt-4 w-full" size="xl" side="bottom">
                 {primaryCta.label}
               </ContactButton>
             </nav>
