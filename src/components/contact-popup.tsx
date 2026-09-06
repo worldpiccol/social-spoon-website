@@ -10,7 +10,6 @@ import {
 } from "react"
 import { Dialog } from "@base-ui/react/dialog"
 import type { VariantProps } from "class-variance-authority"
-import { XIcon } from "lucide-react"
 import {
   EmailIcon,
   socialIcons,
@@ -81,23 +80,23 @@ const spoonLinks: SpoonLink[] = [
     name: "WhatsApp",
     href: socialLinks.find((link) => link.name === "WhatsApp")!.href,
     icon: socialIcons.WhatsApp,
-    top: "40%",
-    left: "18%",
+    top: "46.5%",
+    left: "23%",
     external: true,
   },
   {
     name: "Instagram",
     href: socialLinks.find((link) => link.name === "Instagram")!.href,
     icon: socialIcons.Instagram,
-    top: "24%",
-    left: "22%",
+    top: "24.5%",
+    left: "28%",
     external: true,
   },
   {
     name: "TikTok",
     href: socialLinks.find((link) => link.name === "TikTok")!.href,
     icon: socialIcons.TikTok,
-    top: "16%",
+    top: "14.8%",
     left: "50%",
     external: true,
   },
@@ -105,16 +104,16 @@ const spoonLinks: SpoonLink[] = [
     name: "Snapchat",
     href: socialLinks.find((link) => link.name === "Snapchat")!.href,
     icon: socialIcons.Snapchat,
-    top: "24%",
-    left: "78%",
+    top: "24.5%",
+    left: "72%",
     external: true,
   },
   {
     name: "Email",
     href: `mailto:${SUPPORT_EMAIL}`,
     icon: EmailIcon,
-    top: "40%",
-    left: "82%",
+    top: "46.5%",
+    left: "77%",
   },
 ]
 
@@ -128,32 +127,14 @@ function SpoonContactDialog({
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
-        <Dialog.Backdrop className="fixed inset-0 z-50 bg-black/85 transition-opacity duration-200 data-ending-style:opacity-0 data-starting-style:opacity-0" />
-        <Dialog.Popup
-          className="fixed inset-0 z-50 flex items-center justify-center p-5 outline-none"
-          style={{ transform: "none", top: 0, left: 0, maxWidth: "none" }}
-          onClick={(event) => {
-            if (event.target === event.currentTarget) onOpenChange(false)
-          }}
-        >
+        <Dialog.Backdrop className="fixed inset-0 z-50 bg-black/20 transition-opacity duration-200 data-ending-style:opacity-0 data-starting-style:opacity-0" />
+        <Dialog.Popup className="fixed top-1/2 left-1/2 z-50 w-48 -translate-x-1/2 -translate-y-1/2 outline-none sm:w-52">
           <Dialog.Title className="sr-only">Contact Social Spoon</Dialog.Title>
           <Dialog.Description className="sr-only">
             Reach Social Spoon on WhatsApp, Instagram, TikTok, Snapchat, or
-            email.
+            email. Touch outside the spoon to close.
           </Dialog.Description>
-          <Dialog.Close
-            render={
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute top-4 right-4 text-white hover:bg-white/10"
-                aria-label="Close"
-              />
-            }
-          >
-            <XIcon className="size-5" />
-          </Dialog.Close>
-          <div className="animate-spoon-pop pointer-events-none relative w-[min(22rem,88vw)]">
+          <div className="animate-spoon-pop relative">
             <SpoonMark />
             <nav aria-label="Contact Social Spoon">
               {spoonLinks.map((link) => {
@@ -163,7 +144,7 @@ function SpoonContactDialog({
                     key={link.name}
                     href={link.href}
                     style={{ top: link.top, left: link.left }}
-                    className="pointer-events-auto absolute flex size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-black transition hover:scale-110 focus-visible:scale-110 sm:size-12"
+                    className="absolute flex size-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-black transition hover:scale-110 focus-visible:scale-110"
                     aria-label={
                       link.external
                         ? `${link.name} (opens in a new tab)`
@@ -173,7 +154,7 @@ function SpoonContactDialog({
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : undefined)}
                   >
-                    <Icon className="size-6 sm:size-7" />
+                    <Icon className="size-[1.15rem]" />
                   </a>
                 )
               })}
@@ -188,21 +169,20 @@ function SpoonContactDialog({
 function SpoonMark() {
   return (
     <svg
-      viewBox="0 0 280 500"
-      className="pointer-events-none h-auto w-full"
+      viewBox="0 0 280 310"
+      className="h-auto w-full"
       aria-hidden="true"
     >
       <path
         fill="#5DD4DF"
-        className="pointer-events-auto"
-        d="M134 22C28 36 8 108 8 188 8 276 78 360 134 474 137 482 143 482 146 474 202 360 272 276 272 188 272 108 252 36 146 22L146 132A32 52 0 1 1 134 132Z"
+        d="M134 18C36 30 10 96 10 168 10 228 78 268 134 292 137 298 143 298 146 292 202 268 270 228 270 168 270 96 244 30 146 18L146 78A30 46 0 1 1 134 78Z"
       />
       <path
-        d="M168 154c10 16 10 40 0 58"
+        d="M162 108c8 14 8 36 0 50"
         fill="none"
         stroke="#E8FBFC"
         strokeLinecap="round"
-        strokeWidth="6"
+        strokeWidth="5"
       />
     </svg>
   )
