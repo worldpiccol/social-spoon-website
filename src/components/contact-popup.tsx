@@ -103,6 +103,8 @@ export function ContactButton({
           align="center"
           sideOffset={10}
           collisionPadding={16}
+          positionMethod="fixed"
+          disableAnchorTracking
           className="z-50"
         >
           <Popover.Popup className="origin-[var(--transform-origin)] outline-none">
