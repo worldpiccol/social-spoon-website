@@ -59,7 +59,7 @@ export function ServiceCard({
           flipped && "[transform:rotateY(180deg)]",
         )}
       >
-        <div className="absolute inset-0 flex flex-col rounded-2xl bg-white p-5 shadow-[0_8px_30px_rgba(0,1,32,0.06)] ring-1 ring-border [backface-visibility:hidden] sm:p-6">
+        <div className="absolute inset-0 flex flex-col overflow-hidden rounded-2xl bg-white p-5 shadow-[0_8px_30px_rgba(0,1,32,0.06)] ring-1 ring-border [backface-visibility:hidden] sm:p-6">
           <div
             className={cn(!hasVideo && "flex flex-1 flex-col")}
             onMouseEnter={() => {
@@ -98,7 +98,7 @@ export function ServiceCard({
           </div>
           {service.youtubeId ? (
             <div
-              className="mt-5 flex min-h-0 flex-1 items-center justify-center"
+              className="mt-4 flex min-h-0 flex-1 items-center justify-center"
               onMouseEnter={() => {
                 if (hoverable) setFlipped(false)
               }}
@@ -107,7 +107,7 @@ export function ServiceCard({
               <YoutubeEmbed
                 videoId={service.youtubeId}
                 title={`${service.title} video`}
-                className="mx-auto w-full max-w-[13.5rem]"
+                className="h-full max-h-full w-auto"
               />
             </div>
           ) : null}
