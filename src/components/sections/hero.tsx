@@ -4,23 +4,21 @@ import { Container } from "@/components/container"
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink text-ink-foreground">
-      <div
-        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[54%] md:block"
-        aria-hidden="true"
-      >
+    <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <Image
           src="/images/hero-digital-network.jpg"
           alt=""
           fill
           priority
-          sizes="54vw"
-          className="object-cover object-[80%_42%] scale-[1.22] origin-bottom-right"
+          sizes="100vw"
+          className="object-cover object-[86%_36%] sm:object-[80%_34%] lg:object-[74%_32%]"
         />
-        <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-ink to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-ink from-[18%] via-ink/90 via-[48%] to-transparent to-[82%] sm:from-[12%] sm:via-[40%] sm:to-[75%] lg:from-[8%] lg:via-[36%] lg:to-[68%]" />
+        <div className="absolute inset-0 bg-linear-to-b from-ink/70 from-0% via-ink/25 via-40% to-transparent sm:via-transparent sm:from-ink/20" />
       </div>
-      <Container className="relative">
-        <div className="max-w-xl py-12 sm:py-14 lg:max-w-[32rem] lg:py-16">
+      <Container className="relative z-10">
+        <div className="max-w-xl py-16 sm:py-20 lg:max-w-[34rem] lg:py-24">
           <p className="animate-fade-up text-xs font-medium tracking-[0.28em] text-gold uppercase">
             Social Spoon
           </p>
@@ -67,17 +65,6 @@ export function Hero() {
           </div>
         </div>
       </Container>
-      <div className="relative aspect-[16/10] md:hidden">
-        <Image
-          src="/images/hero-digital-network.jpg"
-          alt="Connected social platforms, advertising, and analytics across a digital network."
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[78%_30%]"
-        />
-        <div className="absolute inset-x-0 top-0 h-10 bg-linear-to-b from-ink to-transparent" />
-      </div>
     </section>
   )
 }
