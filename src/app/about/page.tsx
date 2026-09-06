@@ -2,6 +2,7 @@ import { CtaSection } from "@/components/cta-section"
 import { FadeIn } from "@/components/fade-in"
 import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
+import { AboutHero } from "@/components/sections/about-hero"
 import { pageMetadata } from "@/lib/metadata"
 
 export const metadata = pageMetadata({
@@ -14,12 +15,11 @@ export const metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <>
-      <Section className="pt-12 sm:pt-16">
+      <AboutHero />
+      <Section>
         <SectionHeading
-          eyebrow="About"
-          heading="About Social Spoon"
-          description="Practical Digital Solutions. Built Around Your Needs."
-          headingAs="h1"
+          eyebrow="Our story"
+          heading="Helping you navigate the digital world"
         />
         <FadeIn className="mt-10 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
           <p>
@@ -65,3 +65,4 @@ export default function AboutPage() {
     </>
   )
 }
+
