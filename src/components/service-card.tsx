@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Link from "next/link"
 import { cn } from "cn"
+import { ContactButton } from "@/components/contact-popup"
 import type { Service } from "@/content/services"
 
 export function ServiceCard({
@@ -114,13 +114,14 @@ export function ServiceCard({
             >
               Back
             </button>
-            <Link
-              href="/contact"
-              className="text-sm font-medium text-primary underline-offset-4 hover:underline"
+            <ContactButton
+              variant="link"
+              size="sm"
+              className="h-auto px-0 text-sm font-medium text-primary"
               onClick={(event) => event.stopPropagation()}
             >
               Contact us
-            </Link>
+            </ContactButton>
           </div>
         </div>
       </div>

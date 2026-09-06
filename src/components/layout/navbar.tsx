@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu } from "lucide-react"
 import { cn } from "cn"
-import { ButtonLink } from "@/components/button-link"
+import { ContactButton } from "@/components/contact-popup"
 import { Logo } from "@/components/logo"
 import { Button } from "@/components/ui/button"
 import {
@@ -53,9 +53,7 @@ export function Navbar() {
           })}
         </nav>
         <div className="hidden lg:block">
-          <ButtonLink href={primaryCta.href} size="lg">
-            {primaryCta.label}
-          </ButtonLink>
+          <ContactButton size="lg">{primaryCta.label}</ContactButton>
         </div>
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
@@ -98,14 +96,13 @@ export function Navbar() {
                   </Link>
                 )
               })}
-              <ButtonLink
-                href={primaryCta.href}
+              <ContactButton
                 className="mt-4 w-full"
                 size="xl"
                 onClick={() => setOpen(false)}
               >
                 {primaryCta.label}
-              </ButtonLink>
+              </ContactButton>
             </nav>
           </SheetContent>
         </Sheet>

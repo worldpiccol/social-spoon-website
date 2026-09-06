@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
+import { ContactPopupProvider } from "@/components/contact-popup"
 import { Footer } from "@/components/layout/footer"
 import { Navbar } from "@/components/layout/navbar"
 import {
@@ -94,11 +95,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <Navbar />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <ContactPopupProvider>
+          <Navbar />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </ContactPopupProvider>
       </body>
     </html>
   )

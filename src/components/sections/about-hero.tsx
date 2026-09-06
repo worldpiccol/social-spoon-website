@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { ButtonLink } from "@/components/button-link"
+import { ContactButton } from "@/components/contact-popup"
 import { Container } from "@/components/container"
 
 export function AboutHero() {
@@ -46,13 +47,12 @@ export function AboutHero() {
             >
               See Our Services
             </ButtonLink>
-            <ButtonLink
-              href="/contact"
+            <ContactButton
               variant="outline-inverse"
               className="w-full border-white text-white hover:bg-white/10 sm:w-auto"
             >
               Contact Us
-            </ButtonLink>
+            </ContactButton>
           </div>
         </div>
       </Container>

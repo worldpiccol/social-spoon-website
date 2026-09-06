@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/button-link"
+import { ContactButton } from "@/components/contact-popup"
 import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
 
@@ -39,13 +40,12 @@ export function CtaSection({ invert = false }: { invert?: boolean }) {
           >
             See Our Services
           </ButtonLink>
-          <ButtonLink
-            href="/contact"
+          <ContactButton
             variant={invert ? "outline-inverse" : "outline"}
             className="w-full sm:w-auto"
           >
             Contact Us
-          </ButtonLink>
+          </ContactButton>
         </div>
       </div>
     </Section>

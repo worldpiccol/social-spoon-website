@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/button-link"
+import { ContactButton } from "@/components/contact-popup"
 
 export default function NotFound() {
   return (
@@ -17,9 +18,9 @@ export default function NotFound() {
         <ButtonLink href="/" className="w-full sm:w-auto">
           Back to home
         </ButtonLink>
-        <ButtonLink href="/contact" variant="outline" className="w-full sm:w-auto">
+        <ContactButton variant="outline" className="w-full sm:w-auto">
           Contact us
-        </ButtonLink>
+        </ContactButton>
       </div>
     </section>
   )
