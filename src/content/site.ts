@@ -13,9 +13,27 @@ export const SITE_SHORT_DESCRIPTION =
 export const SITE_DESCRIPTION =
   "Social Spoon provides professional digital solutions for account recovery assistance, social media management, advertising, content creation and online growth.";
 
-export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://127.0.0.1:43123"
-).replace(/\/$/, "");
+function resolveSiteUrl() {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (explicit) return explicit.replace(/\/$/, "");
+
+  const vercelProduction = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+  if (vercelProduction) {
+    return `https://${vercelProduction.replace(/^https?:\/\//, "")}`.replace(
+      /\/$/,
+      "",
+    );
+  }
+
+  const vercelUrl = process.env.VERCEL_URL?.trim();
+  if (vercelUrl) {
+    return `https://${vercelUrl.replace(/^https?:\/\//, "")}`.replace(/\/$/, "");
+  }
+
+  return "http://127.0.0.1:43123";
+}
+
+export const SITE_URL = resolveSiteUrl()
 
 export const SUPPORT_EMAIL = (
   process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@mysocialspoon.com"

@@ -44,7 +44,7 @@ Copy `.env.example` to `.env.local` and fill in values when they are available:
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata, sitemap, and Open Graph |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata, sitemap, and Open Graph. Leave unset or empty in Vercel; the build uses the Vercel hostname instead of crashing on an empty string. |
 | `NEXT_PUBLIC_SUPPORT_EMAIL` | Public support email. Defaults to `support@mysocialspoon.com` |
 
 Site copy, navigation, and social links live in `src/content/`.
