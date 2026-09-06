@@ -56,7 +56,8 @@ These are intentionally not invented:
 - Testimonials
 - Terms & Conditions body copy
 - Privacy Policy / Cookie Policy
-- Business address, phone number, pricing, and registration details
+- Business address, phone number, and registration details
+- Course titles (the Online Courses card notes that a course is available, without listing names)
 
 The Terms page is a placeholder. Testimonials stay hidden until real reviews are added to `src/content/testimonials.ts`.
 

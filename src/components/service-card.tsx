@@ -1,36 +1,80 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import type { Service } from "@/content/services"
+"use client"
+
+import { useEffect, useState } from "react"
+import Link from "next/link"
 import { cn } from "cn"
+import type { Service } from "@/content/services"
 
 export function ServiceCard({
   service,
+  featured = false,
   className,
 }: {
   service: Service
+  featured?: boolean
   className?: string
 }) {
+  const [flipped, setFlipped] = useState(false)
+  const [hoverable, setHoverable] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia("(hover: hover) and (pointer: fine)")
+    const sync = () => setHoverable(media.matches)
+    sync()
+    media.addEventListener("change", sync)
+    return () => media.removeEventListener("change", sync)
+  }, [])
+
+  function toggle() {
+    setFlipped((current) => !current)
+  }
+
   return (
-    <article id={service.id}>
-      <Card
+    <article
+      id={service.id}
+      className={cn(
+        "h-full [perspective:1200px]",
+        !hoverable && "cursor-pointer",
+        className,
+      )}
+      onMouseEnter={() => {
+        if (hoverable) setFlipped(true)
+      }}
+      onMouseLeave={() => {
+        if (hoverable) setFlipped(false)
+      }}
+      onFocus={() => {
+        if (hoverable) setFlipped(true)
+      }}
+      onBlur={(event) => {
+        if (!hoverable) return
+        const next = event.relatedTarget
+        if (next instanceof Node && event.currentTarget.contains(next)) return
+        setFlipped(false)
+      }}
+      onClick={() => {
+        if (!hoverable) toggle()
+      }}
+    >
+      <div
         className={cn(
-          "h-full border-0 bg-white shadow-[0_8px_30px_rgba(0,1,32,0.06)] ring-1 ring-border transition-all hover:-translate-y-0.5 hover:ring-primary/50 hover:shadow-[0_16px_40px_rgba(0,1,32,0.08)] motion-reduce:transform-none",
-          className,
+          "relative h-full transition-transform duration-500 [transform-style:preserve-3d]",
+          featured ? "min-h-[32rem]" : "min-h-[26rem]",
+          flipped && "[transform:rotateY(180deg)]",
         )}
       >
-        <CardHeader>
+        <div className="absolute inset-0 flex flex-col rounded-2xl bg-white p-5 shadow-[0_8px_30px_rgba(0,1,32,0.06)] ring-1 ring-border [backface-visibility:hidden] sm:p-6">
           <p className="text-xs font-medium tracking-[0.2em] text-gold uppercase">
             {service.number}
           </p>
-          <CardTitle className="mt-3 text-xl text-balance">
+          <h3 className="mt-3 text-xl font-semibold tracking-tight text-balance">
             {service.title}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <p className="leading-relaxed text-muted-foreground">
-            {service.description}
+          </h3>
+          <p className="mt-4 flex-1 leading-relaxed text-muted-foreground">
+            {service.summary}
           </p>
           {service.platforms ? (
-            <ul className="flex flex-wrap gap-2">
+            <ul className="mt-4 flex flex-wrap gap-2">
               {service.platforms.map((platform) => (
                 <li
                   key={platform}
@@ -41,16 +85,65 @@ export function ServiceCard({
               ))}
             </ul>
           ) : null}
-          {service.notes?.map((note) => (
-            <p
-              key={note}
-              className="text-sm leading-relaxed text-muted-foreground"
+          <button
+            type="button"
+            className="mt-5 self-start text-sm font-medium text-foreground underline-offset-4 hover:underline"
+            onClick={(event) => {
+              event.stopPropagation()
+              if (!hoverable) toggle()
+            }}
+            aria-expanded={flipped}
+          >
+            {hoverable ? "Hover for details" : "Tap for details"}
+          </button>
+        </div>
+
+        <div className="absolute inset-0 flex flex-col overflow-y-auto rounded-2xl bg-ink p-5 text-ink-foreground shadow-[0_8px_30px_rgba(0,1,32,0.12)] ring-1 ring-white/10 [backface-visibility:hidden] [transform:rotateY(180deg)] sm:p-6">
+          <p className="text-xs font-medium tracking-[0.2em] text-primary uppercase">
+            {service.number}
+          </p>
+          <h3 className="mt-3 text-xl font-semibold tracking-tight text-balance">
+            {service.title}
+          </h3>
+          <div className="mt-4 space-y-3 text-sm leading-relaxed text-white/90 sm:text-base">
+            {service.details.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            {service.plans?.map((plan) => (
+              <div
+                key={plan.name}
+                className="rounded-xl bg-white/10 p-3 ring-1 ring-white/10"
+              >
+                <p className="font-medium text-primary">{plan.name}</p>
+                <ul className="mt-2 list-disc space-y-1 pl-4">
+                  {plan.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="mt-auto flex items-center justify-between gap-3 pt-5">
+            <button
+              type="button"
+              className="text-sm font-medium text-white/80 underline-offset-4 hover:text-white hover:underline"
+              onClick={(event) => {
+                event.stopPropagation()
+                setFlipped(false)
+              }}
             >
-              {note}
-            </p>
-          ))}
-        </CardContent>
-      </Card>
+              Back
+            </button>
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-primary underline-offset-4 hover:underline"
+              onClick={(event) => event.stopPropagation()}
+            >
+              Contact us
+            </Link>
+          </div>
+        </div>
+      </div>
     </article>
   )
 }

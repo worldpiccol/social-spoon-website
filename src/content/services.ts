@@ -1,12 +1,18 @@
 export type ServiceGroupId = "recovery" | "advertising" | "growth"
 
+export type ServicePlan = {
+  name: string
+  items: string[]
+}
+
 export type Service = {
   id: string
   number: string
   group: ServiceGroupId
   title: string
-  description: string
-  notes?: string[]
+  summary: string
+  details: string[]
+  plans?: ServicePlan[]
   platforms?: string[]
   youtubeId?: string
 }
@@ -22,7 +28,7 @@ export const serviceGroups: {
     eyebrow: "Account recovery",
     heading: "Get help when access is at risk",
     description:
-      "Assistance with eligible Instagram, Facebook, WhatsApp, and other social account issues. Outcomes depend on each platform’s policies and decisions.",
+      "Assistance with Instagram, Facebook, WhatsApp, and other social account issues.",
   },
   {
     id: "advertising",
@@ -46,10 +52,28 @@ export const services: Service[] = [
     number: "01",
     group: "recovery",
     title: "Instagram Account Recovery",
-    description:
-      "We assist with the process of recovering suspended or disabled Instagram accounts and resolving account-related issues.",
-    notes: [
-      "Recovery depends on eligibility and Instagram's policies and decisions.",
+    summary:
+      "We assist with the recovery and reinstatement of Instagram accounts that have been suspended, disabled, or restricted.",
+    details: [
+      "We assist with the recovery and reinstatement of Instagram accounts that have been suspended, disabled, or restricted. Our team works to restore access to your account. We have two recovery options:",
+    ],
+    plans: [
+      {
+        name: "Standard Recovery",
+        items: [
+          "Starting from $65 (₦90,000)",
+          "Estimated timeframe: 1–3 months",
+          "Success rate: 87–90%",
+        ],
+      },
+      {
+        name: "Express Recovery",
+        items: [
+          "Starting from $2,500",
+          "Estimated timeframe: 72 working hours",
+          "Success rate: 99.9%",
+        ],
+      },
     ],
     youtubeId: "RfKwcSzKslc",
   },
@@ -58,54 +82,66 @@ export const services: Service[] = [
     number: "02",
     group: "recovery",
     title: "Facebook Account Recovery",
-    description:
-      "Get assistance with suspended, disabled, or restricted Facebook accounts and related access issues.",
-    notes: [
-      "Recovery depends on eligibility and Facebook's policies and decisions.",
+    summary:
+      "We help clients recover Facebook accounts that have been suspended, disabled, or restricted.",
+    details: [
+      "We help clients recover Facebook accounts that have been suspended, disabled, or restricted.",
     ],
   },
   {
     id: "whatsapp-account-issue-resolution",
     number: "03",
     group: "recovery",
-    title: "WhatsApp Account Issue Resolution",
-    description:
-      "We provide assistance with eligible WhatsApp account restrictions, bans, and other account-related issues.",
-    notes: [
-      "Assistance is limited to eligible cases and depends on WhatsApp's policies and decisions.",
+    title: "WhatsApp Ban Resolution",
+    summary:
+      "We assist with WhatsApp accounts that have been banned or restricted and guide clients.",
+    details: [
+      "We assist with WhatsApp accounts that have been banned or restricted and guide clients.",
     ],
   },
   {
     id: "social-media-issue-resolution",
     number: "04",
     group: "recovery",
-    title: "Social Media Issue Resolution",
-    description:
-      "Having a problem with your social media account, page, advertising, or platform features? Our team can help identify the issue and guide you toward an appropriate solution.",
+    title: "Digital & Social Media Issues",
+    summary:
+      "Assistance with digital marketing and social media issues that may affect your business or online presence.",
+    details: [
+      "We provide assistance with various digital marketing and social media-related issues that may affect your business or online presence. Contact us with your specific issue so we can assess how we can help.",
+    ],
   },
   {
     id: "prepaid-advertising-accounts",
     number: "05",
     group: "advertising",
-    title: "Prepaid Advertising Accounts",
-    description:
-      "We provide prepaid advertising account solutions to help businesses run and manage their digital advertising campaigns.",
+    title: "Prepaid Ads Account Setup",
+    summary:
+      "We help businesses set up prepaid ad accounts so they can pay for Instagram ads by debit card or bank transfer.",
+    details: [
+      "We help businesses set up prepaid ad accounts, making it easier to pay for ads on Instagram using their debit card or transfer from their bank account.",
+    ],
   },
   {
     id: "instagram-target-audience-setup",
     number: "06",
     group: "advertising",
     title: "Instagram Target Audience Setup",
-    description:
-      "We help you identify and configure relevant target audiences for your Instagram campaigns to reach people who are more likely to be interested in your products or services.",
+    summary:
+      "We help you set up the right Instagram audience so your ads can reach people who are more likely to convert.",
+    details: [
+      "We help you identify and set up the right audience for your Instagram campaigns based on factors such as location, interests, behaviours, demographics, and your business goals, so your ads can reach your target audience and convert into sales.",
+    ],
   },
   {
     id: "targeted-sponsored-advertising",
     number: "07",
     group: "advertising",
-    title: "Targeted & Sponsored Advertising",
-    description:
-      "We create and manage targeted advertising campaigns to help you reach the right audience and make your advertising campaigns more effective.",
+    title: "Targeted Sponsored Ads On Other SM Platforms",
+    summary:
+      "Targeted advertising campaigns across Instagram, Facebook, X, Snapchat, TikTok, and Google.",
+    details: [
+      "We create and manage targeted advertising campaigns across Instagram, Facebook, X (Twitter), Snapchat, TikTok, and Google to help businesses reach the right audience and generate better results.",
+    ],
     platforms: [
       "Instagram",
       "Facebook",
@@ -119,33 +155,45 @@ export const services: Service[] = [
     id: "instagram-ads-issue-resolution",
     number: "08",
     group: "advertising",
-    title: "Instagram Ads Issue Resolution",
-    description:
-      "Having problems with Instagram advertising? We help troubleshoot common advertising, campaign, account, and ad-delivery issues.",
+    title: "Instagram Ads Issues",
+    summary:
+      "Help with rejected ads, restrictions, disabled ads, payment problems, and other Instagram advertising issues.",
+    details: [
+      "Having problems running Instagram ads? We help diagnose and resolve common advertising issues, including rejected ads, ads restrictions, disabled ads, payment-related problems, etc.",
+    ],
   },
   {
     id: "social-media-page-management",
     number: "09",
     group: "growth",
-    title: "Monthly Social Media Page Management",
-    description:
-      "Let our team manage your social media presence with consistent content, audience engagement, page optimization, and ongoing account support.",
+    title: "Monthly Page Management",
+    summary:
+      "We handle your social media presence so you can focus on your business.",
+    details: [
+      "Let us handle your social media presence while you focus on your business. Our management service covers running of sponsored ads, content planning, posting, and overall page maintenance, etc.",
+    ],
   },
   {
     id: "content-creation-voice-over",
     number: "10",
     group: "growth",
-    title: "Content Creation & Voice-Over",
-    description:
-      "Give your brand a stronger online presence with professional content creation and voice-over services tailored to your audience and platform.",
+    title: "Content Creation & Voice Over",
+    summary:
+      "Engaging content and professional voice-over materials to promote your products or services.",
+    details: [
+      "We create engaging content and professional voice-over materials designed to help businesses promote their products or services, and maintain a strong online presence.",
+    ],
   },
   {
     id: "online-courses",
     number: "11",
     group: "growth",
     title: "Online Courses",
-    description:
-      "Learn practical digital and social media skills through our online courses, designed for individuals, entrepreneurs, creators, and businesses.",
+    summary:
+      "Learn practical digital marketing skills through our online courses.",
+    details: [
+      "Learn practical digital marketing skills through our online courses. We have the following course available:",
+    ],
   },
 ]
 
