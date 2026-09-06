@@ -22,21 +22,8 @@ export default function AboutPage() {
           eyebrow="Our story"
           heading="Helping you navigate the digital world"
         />
-        <div className="mt-10 grid items-start gap-8 lg:grid-cols-12 lg:gap-14">
-          <figure className="lg:col-span-5">
-            <Image
-              src="/images/about-team.jpg"
-              alt="The Social Spoon team in the studio, wearing branded shirts in front of the company sign"
-              width={1086}
-              height={1105}
-              sizes="(min-width: 1024px) 420px, 100vw"
-              className="h-auto w-full rounded-2xl object-cover shadow-[0_16px_40px_rgba(0,1,32,0.08)]"
-            />
-            <figcaption className="mt-3 text-sm text-muted-foreground">
-              The Social Spoon team.
-            </figcaption>
-          </figure>
-          <FadeIn className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-7">
+        <div className="mt-10 grid items-start gap-8 xl:grid-cols-12 xl:gap-14">
+          <FadeIn className="order-1 space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg xl:order-2 xl:col-span-7">
             <p>
               Social Spoon is a digital solutions company helping individuals,
               creators, and businesses navigate the digital world with greater
@@ -54,6 +41,19 @@ export default function AboutPage() {
               individual needs.
             </p>
           </FadeIn>
+          <figure className="order-2 xl:order-1 xl:col-span-5">
+            <Image
+              src="/images/about-team.jpg"
+              alt="The Social Spoon team in the studio, wearing branded shirts in front of the company sign"
+              width={1086}
+              height={1105}
+              sizes="(min-width: 1280px) 420px, 100vw"
+              className="h-auto w-full rounded-2xl object-cover shadow-[0_16px_40px_rgba(0,1,32,0.08)]"
+            />
+            <figcaption className="mt-3 text-sm text-muted-foreground">
+              The Social Spoon team.
+            </figcaption>
+          </figure>
         </div>
       </Section>
       <Section tone="muted">
