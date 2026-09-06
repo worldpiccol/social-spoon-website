@@ -184,12 +184,3 @@ export const services: Service[] = [
     ],
   },
 ]
-
-export const contactReasons = [
-  { value: "general", label: "General enquiry" },
-  ...services.map((service) => ({
-    value: service.id,
-    label: service.title,
-  })),
-  { value: "other", label: "Other" },
-] as const

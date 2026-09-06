@@ -1,70 +1,11 @@
 "use client"
 
-import {
-  createContext,
-  useContext,
-  useMemo,
-  useState,
-  type ComponentProps,
-  type ReactNode,
-} from "react"
-import { Dialog } from "@base-ui/react/dialog"
+import type { ComponentProps } from "react"
+import { Popover } from "@base-ui/react/popover"
 import type { VariantProps } from "class-variance-authority"
-import {
-  EmailIcon,
-  socialIcons,
-} from "@/components/social-icons"
+import { EmailIcon, socialIcons } from "@/components/social-icons"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { socialLinks, SUPPORT_EMAIL } from "@/content/site"
-
-const ContactPopupContext = createContext<{ open: () => void } | null>(null)
-
-export function useContactPopup() {
-  const context = useContext(ContactPopupContext)
-  if (!context) {
-    throw new Error("useContactPopup must be used within ContactPopupProvider")
-  }
-  return context
-}
-
-export function ContactPopupProvider({ children }: { children: ReactNode }) {
-  const [open, setOpen] = useState(false)
-  const value = useMemo(() => ({ open: () => setOpen(true) }), [])
-
-  return (
-    <ContactPopupContext.Provider value={value}>
-      {children}
-      <SpoonContactDialog open={open} onOpenChange={setOpen} />
-    </ContactPopupContext.Provider>
-  )
-}
-
-export function ContactButton({
-  children,
-  className,
-  variant = "default",
-  size = "xl",
-  onClick,
-  ...props
-}: ComponentProps<typeof Button> & VariantProps<typeof buttonVariants>) {
-  const popup = useContactPopup()
-
-  return (
-    <Button
-      type="button"
-      variant={variant}
-      size={size}
-      className={className}
-      {...props}
-      onClick={(event) => {
-        onClick?.(event)
-        if (!event.defaultPrevented) popup.open()
-      }}
-    >
-      {children}
-    </Button>
-  )
-}
 
 type SpoonLink = {
   name: string
@@ -117,62 +58,85 @@ const spoonLinks: SpoonLink[] = [
   },
 ]
 
-function SpoonContactDialog({
-  open,
-  onOpenChange,
-}: {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-}) {
+export function ContactButton({
+  children,
+  className,
+  variant = "default",
+  size = "xl",
+  onClick,
+  side = "bottom",
+  ...props
+}: ComponentProps<typeof Button> &
+  VariantProps<typeof buttonVariants> & {
+    side?: "top" | "bottom" | "left" | "right"
+  }) {
   return (
-    <Dialog.Root open={open} onOpenChange={onOpenChange}>
-      <Dialog.Portal>
-        <Dialog.Backdrop className="fixed inset-0 z-50 bg-black/20 transition-opacity duration-200 data-ending-style:opacity-0 data-starting-style:opacity-0" />
-        <Dialog.Popup className="fixed top-1/2 left-1/2 z-50 w-48 -translate-x-1/2 -translate-y-1/2 outline-none sm:w-52">
-          <Dialog.Title className="sr-only">Contact Social Spoon</Dialog.Title>
-          <Dialog.Description className="sr-only">
-            Reach Social Spoon on WhatsApp, Instagram, TikTok, Snapchat, or
-            email. Touch outside the spoon to close.
-          </Dialog.Description>
-          <div className="animate-spoon-pop relative">
-            <SpoonMark />
-            <nav aria-label="Contact Social Spoon">
-              {spoonLinks.map((link) => {
-                const Icon = link.icon
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    style={{ top: link.top, left: link.left }}
-                    className="absolute flex size-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-black transition hover:scale-110 focus-visible:scale-110"
-                    aria-label={
-                      link.external
-                        ? `${link.name} (opens in a new tab)`
-                        : `Email ${SUPPORT_EMAIL}`
-                    }
-                    {...(link.external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : undefined)}
-                  >
-                    <Icon className="size-[1.15rem]" />
-                  </a>
-                )
-              })}
-            </nav>
-          </div>
-        </Dialog.Popup>
-      </Dialog.Portal>
-    </Dialog.Root>
+    <Popover.Root>
+      <Popover.Trigger
+        render={
+          <Button
+            type="button"
+            variant={variant}
+            size={size}
+            className={className}
+            {...props}
+          />
+        }
+        onClick={onClick}
+      >
+        {children}
+      </Popover.Trigger>
+      <Popover.Portal>
+        <Popover.Positioner
+          side={side}
+          align="center"
+          sideOffset={10}
+          collisionPadding={16}
+          className="z-50"
+        >
+          <Popover.Popup className="origin-[var(--transform-origin)] outline-none">
+            <SpoonContact />
+          </Popover.Popup>
+        </Popover.Positioner>
+      </Popover.Portal>
+    </Popover.Root>
+  )
+}
+
+function SpoonContact() {
+  return (
+    <div className="animate-spoon-pop relative w-60 drop-shadow-[0_12px_28px_rgba(0,1,32,0.22)]">
+      <SpoonMark />
+      <nav aria-label="Contact Social Spoon">
+        {spoonLinks.map((link) => {
+          const Icon = link.icon
+          return (
+            <a
+              key={link.name}
+              href={link.href}
+              style={{ top: link.top, left: link.left }}
+              className="absolute flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-black transition hover:scale-110 focus-visible:scale-110"
+              aria-label={
+                link.external
+                  ? `${link.name} (opens in a new tab)`
+                  : `Email ${SUPPORT_EMAIL}`
+              }
+              {...(link.external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : undefined)}
+            >
+              <Icon className="size-5" />
+            </a>
+          )
+        })}
+      </nav>
+    </div>
   )
 }
 
 function SpoonMark() {
   return (
-    <svg
-      viewBox="0 0 280 310"
-      className="h-auto w-full"
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 280 310" className="h-auto w-full" aria-hidden="true">
       <path
         fill="#5DD4DF"
         d="M134 18C36 30 10 96 10 168 10 228 78 268 134 292 137 298 143 298 146 292 202 268 270 228 270 168 270 96 244 30 146 18L146 78A30 46 0 1 1 134 78Z"

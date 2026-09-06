@@ -64,7 +64,7 @@ export const faqItems: FaqItem[] = [
     paragraphs: [
       "The information required depends on the service and circumstances of the account.",
       "Social Spoon will explain what information or documentation is required.",
-      "Never send passwords, 2FA codes, recovery codes, or other authentication secrets through this website or a contact form.",
+      "Never send passwords, 2FA codes, recovery codes, or other authentication secrets through this website or by email.",
     ],
   },
   {
@@ -88,7 +88,7 @@ export const faqItems: FaqItem[] = [
     id: "get-started",
     question: "How do I get started?",
     paragraphs: [
-      "Choose the service that best matches your situation, email support@mysocialspoon.com, or use the contact form.",
+      "Choose the service that best matches your situation, then use Contact or Get Started to reach Social Spoon on WhatsApp, Instagram, TikTok, Snapchat, or email support@mysocialspoon.com.",
       "Our team can help you understand the available options and requirements.",
     ],
   },

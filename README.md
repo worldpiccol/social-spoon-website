@@ -61,8 +61,8 @@ These are intentionally not invented:
 
 The Terms page is a placeholder. Testimonials stay hidden until real reviews are added to `src/content/testimonials.ts`.
 
-## Contact form
+## Contact
 
-The contact form validates on the server, includes a honeypot, a short time check, and basic rate limiting. It never asks for passwords, 2FA codes, or recovery codes.
+Contact Us and Get Started open a small spoon/pin next to the button, with links to Instagram, WhatsApp, TikTok, Snapchat, and email. There is no contact form page.
 
-Public enquiries can be sent to [support@mysocialspoon.com](mailto:support@mysocialspoon.com). Until a mail provider is wired up, form submissions are accepted and logged on the server rather than emailed.
+Public enquiries can be sent to [support@mysocialspoon.com](mailto:support@mysocialspoon.com).

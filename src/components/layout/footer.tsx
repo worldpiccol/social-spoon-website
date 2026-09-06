@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ContactButton } from "@/components/contact-popup"
 import { Logo } from "@/components/logo"
 import { SocialLinks } from "@/components/social-links"
 import {
@@ -44,6 +45,16 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <ContactButton
+                variant="link"
+                size="sm"
+                className="h-auto px-0 text-sm font-normal text-foreground/80 hover:text-foreground"
+                side="top"
+              >
+                Contact
+              </ContactButton>
+            </li>
           </ul>
         </div>
         <div className="lg:col-span-2">

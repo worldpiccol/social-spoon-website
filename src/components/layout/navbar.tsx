@@ -51,6 +51,13 @@ export function Navbar() {
               </Link>
             )
           })}
+          <ContactButton
+            variant="ghost"
+            size="sm"
+            className="px-3 py-2 text-sm font-normal tracking-wide text-muted-foreground hover:bg-transparent hover:text-foreground"
+          >
+            Contact
+          </ContactButton>
         </nav>
         <div className="hidden lg:block">
           <ContactButton size="lg">{primaryCta.label}</ContactButton>
@@ -97,10 +104,13 @@ export function Navbar() {
                 )
               })}
               <ContactButton
-                className="mt-4 w-full"
-                size="xl"
-                onClick={() => setOpen(false)}
+                variant="ghost"
+                size="lg"
+                className="justify-start px-3 py-3 text-base font-normal text-muted-foreground hover:bg-muted hover:text-foreground"
               >
+                Contact
+              </ContactButton>
+              <ContactButton className="mt-4 w-full" size="xl">
                 {primaryCta.label}
               </ContactButton>
             </nav>

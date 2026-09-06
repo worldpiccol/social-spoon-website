@@ -53,7 +53,6 @@ export const navLinks = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "FAQ", href: "/faq" },
-  { name: "Contact", href: "/contact" },
 ] as const;
 
 export const legalLinks = [
@@ -63,5 +62,4 @@ export const legalLinks = [
 
 export const primaryCta = {
   label: "Get Started",
-  href: "/contact",
 } as const;
