@@ -26,10 +26,12 @@ export const features = [
 ] as const
 
 export const presenceRoles = [
-  "Your storefront.",
-  "Your community.",
-  "Your marketing channel.",
-  "Your source of income.",
-  "Your brand identity.",
-  "Your connection to your customers.",
+  "your storefront",
+  "your community",
+  "your marketing channel",
+  "your source of income",
+  "your brand identity",
+  "your connection to your customers",
 ] as const
+
+export const presenceRolesCopy = `${presenceRoles.slice(0, -1).join(", ")}, and ${presenceRoles.at(-1)}`

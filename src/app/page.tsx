@@ -5,7 +5,7 @@ import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
 import { Hero } from "@/components/sections/hero"
 import { Testimonials } from "@/components/testimonials"
-import { presenceRoles } from "@/content/features"
+import { presenceRolesCopy } from "@/content/features"
 import { testimonials } from "@/content/testimonials"
 import { pageMetadata } from "@/lib/metadata"
 
@@ -51,17 +51,7 @@ export default function HomePage() {
               We understand that your digital presence is more than just a
               social media page.
             </p>
-            <p>It can be:</p>
-            <ul className="grid gap-2 sm:grid-cols-2">
-              {presenceRoles.map((role) => (
-                <li
-                  key={role}
-                  className="rounded-xl border border-border bg-card px-4 py-3 text-foreground"
-                >
-                  {role}
-                </li>
-              ))}
-            </ul>
+            <p>It can be {presenceRolesCopy}.</p>
             <p>
               That’s why we approach every project with the level of care and
               professionalism it deserves.
