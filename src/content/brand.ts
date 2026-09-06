@@ -2,8 +2,8 @@
  * Official Social Spoon colour profile, extracted from the supplied
  * logo artwork (social-spoon.pdf and social-spoon-black.pdf).
  *
- * Cyan wordmark + pin: #5DD4DF
- * Navy (logo background, used for type on light pages): #000120
+ * Navy wordmark on white: #000120 letters, cyan pin
+ * Cyan wordmark on dark: #5DD4DF
  * White: page, header, cards, footer
  */
 export const brand = {

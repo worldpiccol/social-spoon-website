@@ -16,9 +16,9 @@ Extracted from the official logo artwork and applied on a light site:
 | Token | Hex | Use |
 | --- | --- | --- |
 | White | `#FFFFFF` | Page, header, cards, footer |
-| Cyan | `#5DD4DF` | Wordmark, pin, buttons, highlights |
+| Cyan | `#5DD4DF` | Pin, buttons, highlights; wordmark on dark surfaces |
 | Ice | `#E8FBFC` / `#F4FBFC` | Soft section bands |
-| Navy | `#000120` | Headings and body type |
+| Navy | `#000120` | Headings, body type, wordmark on white |
 | Black / navy | `#000000` / `#000120` | Hero artwork wash only |
 
 These live in `src/app/globals.css` and `src/content/brand.ts`. Logo files are in `public/brand/`.

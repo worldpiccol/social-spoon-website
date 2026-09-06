@@ -5,9 +5,10 @@ import { SITE_NAME } from "@/content/site"
 
 export function Logo({
   className,
+  onDark = false,
 }: {
   className?: string
-  invert?: boolean
+  onDark?: boolean
 }) {
   return (
     <Link
@@ -19,7 +20,11 @@ export function Logo({
       aria-label={`${SITE_NAME} home`}
     >
       <Image
-        src="/brand/social-spoon-wordmark.png"
+        src={
+          onDark
+            ? "/brand/social-spoon-wordmark.png"
+            : "/brand/social-spoon-wordmark-navy.png"
+        }
         alt="Social Spoon"
         width={360}
         height={120}
