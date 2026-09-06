@@ -32,11 +32,8 @@ export function ServiceCard({
   return (
     <article
       id={service.id}
-      className={cn(
-        "h-full [perspective:1200px]",
-        !hoverable && "cursor-pointer",
-        className,
-      )}
+      aria-expanded={flipped}
+      className={cn("h-full cursor-pointer [perspective:1200px]", className)}
       onMouseEnter={() => {
         if (hoverable) setFlipped(true)
       }}
@@ -64,10 +61,7 @@ export function ServiceCard({
         )}
       >
         <div className="absolute inset-0 flex flex-col rounded-2xl bg-white p-5 shadow-[0_8px_30px_rgba(0,1,32,0.06)] ring-1 ring-border [backface-visibility:hidden] sm:p-6">
-          <p className="text-xs font-medium tracking-[0.2em] text-gold uppercase">
-            {service.number}
-          </p>
-          <h3 className="mt-3 text-xl font-semibold tracking-tight text-balance">
+          <h3 className="text-xl font-semibold tracking-tight text-balance">
             {service.title}
           </h3>
           <p className="mt-4 flex-1 leading-relaxed text-muted-foreground">
@@ -85,24 +79,10 @@ export function ServiceCard({
               ))}
             </ul>
           ) : null}
-          <button
-            type="button"
-            className="mt-5 self-start text-sm font-medium text-foreground underline-offset-4 hover:underline"
-            onClick={(event) => {
-              event.stopPropagation()
-              if (!hoverable) toggle()
-            }}
-            aria-expanded={flipped}
-          >
-            {hoverable ? "Hover for details" : "Tap for details"}
-          </button>
         </div>
 
         <div className="absolute inset-0 flex flex-col overflow-y-auto rounded-2xl bg-ink p-5 text-ink-foreground shadow-[0_8px_30px_rgba(0,1,32,0.12)] ring-1 ring-white/10 [backface-visibility:hidden] [transform:rotateY(180deg)] sm:p-6">
-          <p className="text-xs font-medium tracking-[0.2em] text-primary uppercase">
-            {service.number}
-          </p>
-          <h3 className="mt-3 text-xl font-semibold tracking-tight text-balance">
+          <h3 className="text-xl font-semibold tracking-tight text-balance">
             {service.title}
           </h3>
           <div className="mt-4 space-y-3 text-sm leading-relaxed text-white/90 sm:text-base">

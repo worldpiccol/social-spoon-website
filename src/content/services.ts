@@ -7,7 +7,6 @@ export type ServicePlan = {
 
 export type Service = {
   id: string
-  number: string
   group: ServiceGroupId
   title: string
   summary: string
@@ -49,7 +48,6 @@ export const serviceGroups: {
 export const services: Service[] = [
   {
     id: "instagram-account-recovery",
-    number: "01",
     group: "recovery",
     title: "Instagram Account Recovery",
     summary:
@@ -79,7 +77,6 @@ export const services: Service[] = [
   },
   {
     id: "facebook-account-recovery",
-    number: "02",
     group: "recovery",
     title: "Facebook Account Recovery",
     summary:
@@ -90,7 +87,6 @@ export const services: Service[] = [
   },
   {
     id: "whatsapp-account-issue-resolution",
-    number: "03",
     group: "recovery",
     title: "WhatsApp Ban Resolution",
     summary:
@@ -101,7 +97,6 @@ export const services: Service[] = [
   },
   {
     id: "social-media-issue-resolution",
-    number: "04",
     group: "recovery",
     title: "Digital & Social Media Issues",
     summary:
@@ -112,7 +107,6 @@ export const services: Service[] = [
   },
   {
     id: "prepaid-advertising-accounts",
-    number: "05",
     group: "advertising",
     title: "Prepaid Ads Account Setup",
     summary:
@@ -123,7 +117,6 @@ export const services: Service[] = [
   },
   {
     id: "instagram-target-audience-setup",
-    number: "06",
     group: "advertising",
     title: "Instagram Target Audience Setup",
     summary:
@@ -134,7 +127,6 @@ export const services: Service[] = [
   },
   {
     id: "targeted-sponsored-advertising",
-    number: "07",
     group: "advertising",
     title: "Targeted Sponsored Ads On Other SM Platforms",
     summary:
@@ -153,7 +145,6 @@ export const services: Service[] = [
   },
   {
     id: "instagram-ads-issue-resolution",
-    number: "08",
     group: "advertising",
     title: "Instagram Ads Issues",
     summary:
@@ -164,7 +155,6 @@ export const services: Service[] = [
   },
   {
     id: "social-media-page-management",
-    number: "09",
     group: "growth",
     title: "Monthly Page Management",
     summary:
@@ -175,7 +165,6 @@ export const services: Service[] = [
   },
   {
     id: "content-creation-voice-over",
-    number: "10",
     group: "growth",
     title: "Content Creation & Voice Over",
     summary:
@@ -186,7 +175,6 @@ export const services: Service[] = [
   },
   {
     id: "online-courses",
-    number: "11",
     group: "growth",
     title: "Online Courses",
     summary:
