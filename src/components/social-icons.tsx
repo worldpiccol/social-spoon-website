@@ -33,7 +33,19 @@ export function TikTokIcon({ className }: { className?: string }) {
       aria-hidden="true"
       className={cn("size-4 fill-current", className)}
     >
-      <path d="M14.2 3.1h2.12c.2 1.86 1.38 3.42 3.18 3.92v2.2c-1.1.12-2.14-.12-3.18-.7v6.36c0 3.3-2.64 5.72-5.86 5.72A5.7 5.7 0 0 1 4.7 15.8c0-3.16 2.56-5.74 5.76-5.74.2 0 .42.02.62.04v2.34a3.4 3.4 0 0 0-.62-.06 3.38 3.38 0 0 0-3.4 3.38 3.38 3.38 0 0 0 5.5 2.64c.5-.42.8-1.04.8-1.72V3.1Z" />
+      <path d="M19.59 6.69A4.83 4.83 0 0 1 15.82 2.4V2h-3.4v13.67a2.89 2.89 0 1 1-2.88-2.88c.27 0 .54.04.8.1v-3.47a6.34 6.34 0 0 0-.8-.05 6.35 6.35 0 1 0 6.35 6.34V8.7a8.16 8.16 0 0 0 4.7 1.5V6.79a4.86 4.86 0 0 1-1-.1Z" />
+    </svg>
+  )
+}
+
+export function FacebookIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={cn("size-4 fill-current", className)}
+    >
+      <path d="M14 8.5h3.2l-.5 3.2H14V22h-3.6v-10.3H8V8.5h2.4V6.6C10.4 4.2 11.8 2.5 14.6 2.5H17.2v3.2h-1.6c-.7 0-1.2.3-1.2 1.2v1.6Z" />
     </svg>
   )
 }

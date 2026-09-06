@@ -1,60 +1,71 @@
 "use client"
 
 import type { ComponentProps } from "react"
+import Image from "next/image"
 import { Popover } from "@base-ui/react/popover"
 import type { VariantProps } from "class-variance-authority"
-import { EmailIcon, socialIcons } from "@/components/social-icons"
+import {
+  EmailIcon,
+  FacebookIcon,
+  socialIcons,
+} from "@/components/social-icons"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { socialLinks, SUPPORT_EMAIL } from "@/content/site"
 
-type SpoonLink = {
+type SpoonItem = {
   name: string
-  href: string
+  href?: string
   icon: typeof EmailIcon
   top: string
   left: string
   external?: boolean
 }
 
-const spoonLinks: SpoonLink[] = [
+const spoonItems: SpoonItem[] = [
+  {
+    name: "Facebook",
+    icon: FacebookIcon,
+    top: "30.7%",
+    left: "12%",
+  },
   {
     name: "WhatsApp",
     href: socialLinks.find((link) => link.name === "WhatsApp")!.href,
     icon: socialIcons.WhatsApp,
-    top: "46.5%",
-    left: "23%",
+    top: "21.1%",
+    left: "22%",
     external: true,
   },
   {
     name: "Instagram",
     href: socialLinks.find((link) => link.name === "Instagram")!.href,
     icon: socialIcons.Instagram,
-    top: "24.5%",
-    left: "28%",
+    top: "17.3%",
+    left: "38%",
     external: true,
   },
   {
     name: "TikTok",
     href: socialLinks.find((link) => link.name === "TikTok")!.href,
     icon: socialIcons.TikTok,
-    top: "14.8%",
-    left: "50%",
+    top: "17.3%",
+    left: "62%",
     external: true,
   },
   {
     name: "Snapchat",
     href: socialLinks.find((link) => link.name === "Snapchat")!.href,
     icon: socialIcons.Snapchat,
-    top: "24.5%",
-    left: "72%",
+    top: "23.1%",
+    left: "72.4%",
     external: true,
   },
   {
     name: "Email",
     href: `mailto:${SUPPORT_EMAIL}`,
     icon: EmailIcon,
-    top: "46.5%",
-    left: "77%",
+    top: "30.7%",
+    left: "80.5%",
   },
 ]
 
@@ -95,6 +106,13 @@ export function ContactButton({
           className="z-50"
         >
           <Popover.Popup className="origin-[var(--transform-origin)] outline-none">
+            <Popover.Title className="sr-only">
+              Contact Social Spoon
+            </Popover.Title>
+            <Popover.Description className="sr-only">
+              Reach Social Spoon on WhatsApp, Instagram, TikTok, Snapchat, or
+              email.
+            </Popover.Description>
             <SpoonContact />
           </Popover.Popup>
         </Popover.Positioner>
@@ -105,23 +123,43 @@ export function ContactButton({
 
 function SpoonContact() {
   return (
-    <div className="animate-spoon-pop relative w-60 drop-shadow-[0_12px_28px_rgba(0,1,32,0.22)]">
-      <SpoonMark />
+    <div className="animate-spoon-pop relative w-52 drop-shadow-[0_12px_28px_rgba(0,1,32,0.22)]">
+      <Image
+        src="/brand/contact-spoon.png"
+        alt=""
+        width={258}
+        height={452}
+        className="h-auto w-full"
+      />
       <nav aria-label="Contact Social Spoon">
-        {spoonLinks.map((link) => {
-          const Icon = link.icon
+        {spoonItems.map((item) => {
+          const Icon = item.icon
+          const className =
+            "absolute flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-black"
+          if (!item.href) {
+            return (
+              <span
+                key={item.name}
+                style={{ top: item.top, left: item.left }}
+                className={className}
+                aria-hidden="true"
+              >
+                <Icon className="size-5" />
+              </span>
+            )
+          }
           return (
             <a
-              key={link.name}
-              href={link.href}
-              style={{ top: link.top, left: link.left }}
-              className="absolute flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-black transition hover:scale-110 focus-visible:scale-110"
+              key={item.name}
+              href={item.href}
+              style={{ top: item.top, left: item.left }}
+              className={`${className} transition hover:scale-110 focus-visible:scale-110`}
               aria-label={
-                link.external
-                  ? `${link.name} (opens in a new tab)`
+                item.external
+                  ? `${item.name} (opens in a new tab)`
                   : `Email ${SUPPORT_EMAIL}`
               }
-              {...(link.external
+              {...(item.external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : undefined)}
             >
@@ -131,23 +169,5 @@ function SpoonContact() {
         })}
       </nav>
     </div>
-  )
-}
-
-function SpoonMark() {
-  return (
-    <svg viewBox="0 0 280 310" className="h-auto w-full" aria-hidden="true">
-      <path
-        fill="#5DD4DF"
-        d="M134 18C36 30 10 96 10 168 10 228 78 268 134 292 137 298 143 298 146 292 202 268 270 228 270 168 270 96 244 30 146 18L146 78A30 46 0 1 1 134 78Z"
-      />
-      <path
-        d="M162 108c8 14 8 36 0 50"
-        fill="none"
-        stroke="#E8FBFC"
-        strokeLinecap="round"
-        strokeWidth="5"
-      />
-    </svg>
   )
 }
