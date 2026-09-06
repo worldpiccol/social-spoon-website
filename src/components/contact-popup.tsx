@@ -81,23 +81,23 @@ const spoonLinks: SpoonLink[] = [
     name: "WhatsApp",
     href: socialLinks.find((link) => link.name === "WhatsApp")!.href,
     icon: socialIcons.WhatsApp,
-    top: "42.5%",
-    left: "20%",
+    top: "40%",
+    left: "18%",
     external: true,
   },
   {
     name: "Instagram",
     href: socialLinks.find((link) => link.name === "Instagram")!.href,
     icon: socialIcons.Instagram,
-    top: "26%",
-    left: "24%",
+    top: "24%",
+    left: "22%",
     external: true,
   },
   {
     name: "TikTok",
     href: socialLinks.find((link) => link.name === "TikTok")!.href,
     icon: socialIcons.TikTok,
-    top: "18.5%",
+    top: "16%",
     left: "50%",
     external: true,
   },
@@ -105,16 +105,16 @@ const spoonLinks: SpoonLink[] = [
     name: "Snapchat",
     href: socialLinks.find((link) => link.name === "Snapchat")!.href,
     icon: socialIcons.Snapchat,
-    top: "26%",
-    left: "76%",
+    top: "24%",
+    left: "78%",
     external: true,
   },
   {
     name: "Email",
     href: `mailto:${SUPPORT_EMAIL}`,
     icon: EmailIcon,
-    top: "42.5%",
-    left: "80%",
+    top: "40%",
+    left: "82%",
   },
 ]
 
@@ -132,6 +132,9 @@ function SpoonContactDialog({
         <Dialog.Popup
           className="fixed inset-0 z-50 flex items-center justify-center p-5 outline-none"
           style={{ transform: "none", top: 0, left: 0, maxWidth: "none" }}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) onOpenChange(false)
+          }}
         >
           <Dialog.Title className="sr-only">Contact Social Spoon</Dialog.Title>
           <Dialog.Description className="sr-only">
@@ -150,7 +153,7 @@ function SpoonContactDialog({
           >
             <XIcon className="size-5" />
           </Dialog.Close>
-          <div className="animate-spoon-pop relative w-[min(20rem,84vw)]">
+          <div className="animate-spoon-pop pointer-events-none relative w-[min(22rem,88vw)]">
             <SpoonMark />
             <nav aria-label="Contact Social Spoon">
               {spoonLinks.map((link) => {
@@ -160,7 +163,7 @@ function SpoonContactDialog({
                     key={link.name}
                     href={link.href}
                     style={{ top: link.top, left: link.left }}
-                    className="absolute flex size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-black transition hover:scale-110 focus-visible:scale-110 sm:size-12"
+                    className="pointer-events-auto absolute flex size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-black transition hover:scale-110 focus-visible:scale-110 sm:size-12"
                     aria-label={
                       link.external
                         ? `${link.name} (opens in a new tab)`
@@ -186,19 +189,20 @@ function SpoonMark() {
   return (
     <svg
       viewBox="0 0 280 500"
-      className="h-auto w-full"
+      className="pointer-events-none h-auto w-full"
       aria-hidden="true"
     >
       <path
         fill="#5DD4DF"
-        d="M135 28C44 40 18 108 18 188 18 268 72 348 135 470 138 478 142 478 145 470 208 348 262 268 262 188 262 108 236 40 145 28L145 94A58 90 0 1 1 135 94Z"
+        className="pointer-events-auto"
+        d="M134 22C28 36 8 108 8 188 8 276 78 360 134 474 137 482 143 482 146 474 202 360 272 276 272 188 272 108 252 36 146 22L146 132A32 52 0 1 1 134 132Z"
       />
       <path
-        d="M176 148c16 22 16 58 0 84"
+        d="M168 154c10 16 10 40 0 58"
         fill="none"
         stroke="#E8FBFC"
         strokeLinecap="round"
-        strokeWidth="4"
+        strokeWidth="6"
       />
     </svg>
   )
