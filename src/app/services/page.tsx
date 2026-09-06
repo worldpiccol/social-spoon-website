@@ -1,8 +1,7 @@
 import { CtaSection } from "@/components/cta-section"
 import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
-import { ServiceGrid } from "@/components/service-grid"
-import { services } from "@/content/services"
+import { ServiceCatalog } from "@/components/service-catalog"
 import { pageMetadata } from "@/lib/metadata"
 
 export const metadata = pageMetadata({
@@ -28,11 +27,12 @@ export default function ServicesPage() {
           does not guarantee reinstatement, sales, conversions, leads, or
           advertising results.
         </p>
-        <div className="mt-12">
-          <ServiceGrid items={services} />
+        <div className="mt-14">
+          <ServiceCatalog />
         </div>
       </Section>
       <CtaSection />
     </>
   )
 }
+
