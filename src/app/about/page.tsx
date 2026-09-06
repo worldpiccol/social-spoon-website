@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { CtaSection } from "@/components/cta-section"
 import { FadeIn } from "@/components/fade-in"
 import { Section } from "@/components/section"
@@ -21,24 +22,39 @@ export default function AboutPage() {
           eyebrow="Our story"
           heading="Helping you navigate the digital world"
         />
-        <FadeIn className="mt-10 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-          <p>
-            Social Spoon is a digital solutions company helping individuals,
-            creators, and businesses navigate the digital world with greater
-            confidence.
-          </p>
-          <p>
-            Founded in 2023 by Miss Prisca Chukwu, Social Spoon is based in
-            Africa and operates across Ghana and South Africa, working with
-            clients both locally and internationally.
-          </p>
-          <p>
-            Because our services are delivered online, distance has never been
-            a limitation. We work with clients wherever they are, providing
-            accessible digital support and solutions tailored to their
-            individual needs.
-          </p>
-        </FadeIn>
+        <div className="mt-10 grid items-start gap-8 lg:grid-cols-12 lg:gap-14">
+          <figure className="lg:col-span-5">
+            <Image
+              src="/images/about-team.jpg"
+              alt="The Social Spoon team in the studio, wearing branded shirts in front of the company sign"
+              width={1086}
+              height={1105}
+              sizes="(min-width: 1024px) 420px, 100vw"
+              className="h-auto w-full rounded-2xl object-cover shadow-[0_16px_40px_rgba(0,1,32,0.08)]"
+            />
+            <figcaption className="mt-3 text-sm text-muted-foreground">
+              The Social Spoon team.
+            </figcaption>
+          </figure>
+          <FadeIn className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-7">
+            <p>
+              Social Spoon is a digital solutions company helping individuals,
+              creators, and businesses navigate the digital world with greater
+              confidence.
+            </p>
+            <p>
+              Founded in 2023 by Miss Prisca Chukwu, Social Spoon is based in
+              Africa and operates across Ghana and South Africa, working with
+              clients both locally and internationally.
+            </p>
+            <p>
+              Because our services are delivered online, distance has never been
+              a limitation. We work with clients wherever they are, providing
+              accessible digital support and solutions tailored to their
+              individual needs.
+            </p>
+          </FadeIn>
+        </div>
       </Section>
       <Section tone="muted">
         <SectionHeading eyebrow="Our goal" heading="To help you move forward" />
