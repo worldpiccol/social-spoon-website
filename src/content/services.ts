@@ -121,6 +121,12 @@ export const services: Service[] = [
         ],
       },
     ],
+    image: {
+      src: "/images/whatsapp-ban-resolution.jpg",
+      alt: "WhatsApp logo with a red prohibition mark, representing a banned or restricted account",
+      width: 784,
+      height: 1168,
+    },
   },
   {
     id: "social-media-issue-resolution",
