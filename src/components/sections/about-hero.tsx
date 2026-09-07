@@ -13,14 +13,14 @@ export function AboutHero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[78%_42%] sm:object-[72%_40%] lg:object-[68%_38%]"
+          className="object-cover object-[72%_18%] sm:object-[72%_40%] lg:object-[68%_38%]"
         />
-        <div className="absolute inset-0 bg-black/25" />
-        <div className="absolute inset-0 bg-linear-to-r from-black from-0% via-black/88 via-[42%] to-transparent to-[74%] sm:via-[38%] lg:via-black/80 lg:via-[34%] lg:to-[64%]" />
-        <div className="absolute inset-0 bg-linear-to-b from-black/55 via-transparent to-black/35 sm:from-black/35" />
+        <div className="absolute inset-0 bg-black/10 sm:bg-black/25" />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/25 via-[48%] to-black/80 sm:bg-linear-to-r sm:from-black sm:from-0% sm:via-black/88 sm:via-[38%] sm:to-transparent sm:to-[74%] lg:via-black/80 lg:via-[34%] lg:to-[64%]" />
+        <div className="absolute inset-0 hidden bg-linear-to-b from-black/35 via-transparent to-black/35 sm:block" />
       </div>
-      <Container className="relative z-10">
-        <div className="relative max-w-xl py-16 sm:py-20 lg:max-w-[34rem] lg:py-24">
+      <Container className="relative z-10 flex min-h-[36rem] flex-col justify-end sm:block sm:min-h-0">
+        <div className="relative max-w-xl pt-4 pb-12 sm:py-20 lg:max-w-[34rem] lg:py-24">
           <p className="animate-fade-up text-xs font-medium tracking-[0.28em] text-primary uppercase drop-shadow-[0_1px_10px_rgba(0,0,0,0.9)]">
             About
           </p>
@@ -31,7 +31,7 @@ export function AboutHero() {
             About Social Spoon
           </h1>
           <p
-            className="animate-fade-up mt-6 text-lg leading-relaxed font-medium text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_22px_rgba(0,0,0,0.8)] sm:text-xl"
+            className="animate-fade-up mt-8 text-lg leading-relaxed font-medium text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_22px_rgba(0,0,0,0.8)] sm:mt-6 sm:text-xl"
             style={{ animationDelay: "160ms" }}
           >
             Practical Digital Solutions. Built Around Your Needs.
