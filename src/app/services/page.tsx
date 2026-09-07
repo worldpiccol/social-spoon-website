@@ -2,6 +2,7 @@ import { CtaSection } from "@/components/cta-section"
 import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
 import { ServiceCatalog } from "@/components/service-catalog"
+import { ServiceTestimonials } from "@/components/service-testimonials"
 import { pageMetadata } from "@/lib/metadata"
 
 export const metadata = pageMetadata({
@@ -31,6 +32,7 @@ export default function ServicesPage() {
           <ServiceCatalog />
         </div>
       </Section>
+      <ServiceTestimonials />
       <CtaSection showServicesCta={false} />
     </>
   )
