@@ -246,18 +246,19 @@ function SpoonContact({ inverted = false }: { inverted?: boolean }) {
           className="h-auto w-full"
         />
         <nav aria-label="Contact Social Spoon">
-          {spoonItems.map((item) => {
+          {spoonItems.map((item, index) => {
             const className = cn(
-              "absolute flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center touch-manipulation",
+              "absolute flex size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center touch-manipulation",
               inverted && "rotate-180",
             )
             const logo = (
               <Image
                 src={item.src}
                 alt=""
-                width={128}
-                height={128}
-                className="size-7 object-contain"
+                width={160}
+                height={160}
+                className="spoon-star size-8 object-contain"
+                style={{ animationDelay: `${index * 0.28}s` }}
               />
             )
             if (!item.href) {
