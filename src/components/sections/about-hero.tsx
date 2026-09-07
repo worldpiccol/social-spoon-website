@@ -13,13 +13,13 @@ export function AboutHero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[72%_18%] sm:object-[72%_40%] lg:object-[68%_38%]"
+          className="object-cover object-[70%_16%] scale-[2] origin-[70%_16%] sm:scale-100 sm:object-[72%_40%] lg:object-[68%_38%]"
         />
-        <div className="absolute inset-0 bg-black/10 sm:bg-black/25" />
-        <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent via-[42%] to-black/80 sm:bg-linear-to-r sm:from-black sm:from-0% sm:via-black/88 sm:via-[38%] sm:to-transparent sm:to-[74%] lg:via-black/80 lg:via-[34%] lg:to-[64%]" />
+        <div className="absolute inset-0 bg-transparent sm:bg-black/25" />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent from-[68%] to-black/65 sm:bg-linear-to-r sm:from-black sm:from-0% sm:via-black/88 sm:via-[38%] sm:to-transparent sm:to-[74%] lg:via-black/80 lg:via-[34%] lg:to-[64%]" />
         <div className="absolute inset-0 hidden bg-linear-to-b from-black/35 via-transparent to-black/35 sm:block" />
       </div>
-      <Container className="relative z-10 flex min-h-[70svh] flex-col justify-end sm:block sm:min-h-0">
+      <Container className="relative z-10 flex min-h-svh flex-col justify-end sm:block sm:min-h-0">
         <div className="relative max-w-xl pt-4 pb-10 sm:py-20 lg:max-w-[34rem] lg:py-24">
           <p className="animate-fade-up hidden text-xs font-medium tracking-[0.28em] text-primary uppercase drop-shadow-[0_1px_10px_rgba(0,0,0,0.9)] sm:block">
             About
