@@ -101,6 +101,12 @@ export const services: Service[] = [
         ],
       },
     ],
+    image: {
+      src: "/images/facebook-account-recovery.png",
+      alt: "Facebook logo with a restore symbol, representing account recovery",
+      width: 1024,
+      height: 1024,
+    },
   },
   {
     id: "whatsapp-account-issue-resolution",
