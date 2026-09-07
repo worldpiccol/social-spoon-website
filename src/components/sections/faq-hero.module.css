@@ -1,0 +1,106 @@
+.hero {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #f7d9c8;
+}
+
+.bg {
+  object-fit: cover;
+  object-position: 18% center;
+}
+
+@media (min-width: 768px) {
+  .bg {
+    object-position: right center;
+  }
+}
+
+/* Tweak left / top / width if the FAQ letters drift off the empty left space. */
+.mark {
+  position: absolute;
+  z-index: 1;
+  top: 7%;
+  left: 50%;
+  width: 70%;
+  height: auto;
+  transform: translateX(-50%);
+  pointer-events: none;
+  animation: faqBlink 1.4s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .mark {
+    top: 36%;
+    left: 6%;
+    width: min(42%, 520px);
+    transform: none;
+  }
+}
+
+.copy {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 8%;
+  width: min(86%, 34rem);
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .copy {
+    left: 6%;
+    top: auto;
+    bottom: 14%;
+    width: min(42%, 520px);
+    transform: none;
+    text-align: left;
+  }
+}
+
+.headline {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #000120;
+  text-wrap: balance;
+}
+
+.sub {
+  margin: 0.6rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgb(0 1 32 / 72%);
+}
+
+@media (min-width: 768px) {
+  .headline {
+    font-size: 1.65rem;
+  }
+
+  .sub {
+    font-size: 1.05rem;
+  }
+}
+
+@keyframes faqBlink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  55%,
+  100% {
+    opacity: 0.12;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark {
+    animation: none;
+  }
+}
