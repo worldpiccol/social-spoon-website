@@ -78,7 +78,7 @@ const spoonItems: SpoonItem[] = [
   },
 ]
 
-const SPOON_WIDTH = 208
+const SPOON_WIDTH = 252
 const SPOON_HEIGHT = SPOON_WIDTH * (452 / 258)
 const SPOON_GAP = 8
 const VIEWPORT_MARGIN = 12
@@ -115,7 +115,7 @@ function placeSpoon(
   }
 
   const available = inverted ? spaceBelow : spaceAbove
-  const scale = clamp((available - SPOON_GAP) / SPOON_HEIGHT, 0.55, 1)
+  const scale = clamp((available - SPOON_GAP) / SPOON_HEIGHT, 0.62, 1)
   const width = SPOON_WIDTH * scale
   const height = SPOON_HEIGHT * scale
   const centerX = rect.left + rect.width / 2
@@ -254,7 +254,7 @@ function SpoonContact({ inverted = false }: { inverted?: boolean }) {
           {spoonItems.map((item) => {
             const Icon = item.icon
             const className = cn(
-              "absolute flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-black",
+              "absolute flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-[0_2px_8px_rgba(0,1,32,0.2)] ring-1 ring-black/8 touch-manipulation",
               inverted && "rotate-180",
             )
             if (!item.href) {
@@ -265,7 +265,7 @@ function SpoonContact({ inverted = false }: { inverted?: boolean }) {
                   className={className}
                   aria-hidden="true"
                 >
-                  <Icon className="size-5" />
+                  <Icon className="size-7" />
                 </span>
               )
             }
@@ -284,7 +284,7 @@ function SpoonContact({ inverted = false }: { inverted?: boolean }) {
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : undefined)}
               >
-                <Icon className="size-5" />
+                <Icon className="size-7" />
               </a>
             )
           })}
