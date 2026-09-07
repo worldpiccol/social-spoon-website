@@ -6,6 +6,8 @@ export type WorkProof = {
   height: number
 }
 
+/** Add further testimonial graphics here. The services slider will pick them up. */
+
 export const serviceWorkProof: WorkProof[] = [
   {
     title: "Page revamp",
