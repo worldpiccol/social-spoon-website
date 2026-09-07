@@ -25,17 +25,11 @@ export function AboutHero() {
             About
           </p>
           <h1
-            className="animate-fade-up mt-5 text-4xl font-semibold tracking-tight text-balance text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_28px_rgba(0,0,0,0.85)] sm:text-5xl lg:text-[3.35rem] lg:leading-[1.08]"
+            className="animate-fade-up mt-5 text-lg leading-relaxed font-medium text-balance text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_22px_rgba(0,0,0,0.8)] sm:text-xl"
             style={{ animationDelay: "80ms" }}
           >
-            About Social Spoon
-          </h1>
-          <p
-            className="animate-fade-up mt-6 text-lg leading-relaxed font-medium text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_22px_rgba(0,0,0,0.8)] sm:text-xl"
-            style={{ animationDelay: "160ms" }}
-          >
             Practical Digital Solutions. Built Around Your Needs.
-          </p>
+          </h1>
           <div
             className="animate-fade-up mt-8 flex flex-col gap-3 sm:flex-row"
             style={{ animationDelay: "240ms" }}
