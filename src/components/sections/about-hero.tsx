@@ -13,22 +13,25 @@ export function AboutHero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[70%_16%] scale-[2] origin-[70%_16%] sm:scale-100 sm:object-[72%_40%] lg:object-[68%_38%]"
+          className="object-cover object-[78%_42%] sm:object-[72%_40%] lg:object-[68%_38%]"
         />
-        <div className="absolute inset-0 bg-transparent sm:bg-black/25" />
-        <div className="absolute inset-0 bg-linear-to-b from-transparent from-[68%] to-black/65 sm:bg-linear-to-r sm:from-black sm:from-0% sm:via-black/88 sm:via-[38%] sm:to-transparent sm:to-[74%] lg:via-black/80 lg:via-[34%] lg:to-[64%]" />
-        <div className="absolute inset-0 hidden bg-linear-to-b from-black/35 via-transparent to-black/35 sm:block" />
+        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-linear-to-r from-black from-0% via-black/88 via-[42%] to-transparent to-[74%] sm:via-[38%] lg:via-black/80 lg:via-[34%] lg:to-[64%]" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/55 via-transparent to-black/35 sm:from-black/35" />
       </div>
-      <Container className="relative z-10 flex min-h-svh flex-col justify-end sm:block sm:min-h-0">
-        <div className="relative max-w-xl pt-4 pb-10 sm:py-20 lg:max-w-[34rem] lg:py-24">
+      <Container className="relative z-10">
+        <div className="relative max-w-xl py-16 sm:py-20 lg:max-w-[34rem] lg:py-24">
           <p className="animate-fade-up text-xs font-medium tracking-[0.28em] text-primary uppercase drop-shadow-[0_1px_10px_rgba(0,0,0,0.9)]">
             About
           </p>
-          <h1 className="sr-only sm:not-sr-only sm:animate-fade-up sm:mt-5 sm:text-5xl sm:font-semibold sm:tracking-tight sm:text-balance sm:text-[#ffffff] sm:[text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_28px_rgba(0,0,0,0.85)] lg:text-[3.35rem] lg:leading-[1.08]">
+          <h1
+            className="animate-fade-up mt-5 text-4xl font-semibold tracking-tight text-balance text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_28px_rgba(0,0,0,0.85)] sm:text-5xl lg:text-[3.35rem] lg:leading-[1.08]"
+            style={{ animationDelay: "80ms" }}
+          >
             About Social Spoon
           </h1>
           <p
-            className="animate-fade-up mt-3 text-lg leading-relaxed font-medium text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_22px_rgba(0,0,0,0.8)] sm:mt-6 sm:text-xl"
+            className="animate-fade-up mt-6 text-lg leading-relaxed font-medium text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_22px_rgba(0,0,0,0.8)] sm:text-xl"
             style={{ animationDelay: "160ms" }}
           >
             Practical Digital Solutions. Built Around Your Needs.
