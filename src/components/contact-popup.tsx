@@ -29,47 +29,47 @@ const spoonItems: SpoonItem[] = [
   {
     name: "Facebook",
     src: "/brand/spoon-icons/facebook.png",
-    top: "31.3%",
-    left: "16.8%",
+    top: "34.5%",
+    left: "15.2%",
   },
   {
     name: "WhatsApp",
     href: socialLinks.find((link) => link.name === "WhatsApp")!.href,
     src: "/brand/spoon-icons/whatsapp.png",
-    top: "23.4%",
-    left: "24.1%",
+    top: "24%",
+    left: "23.5%",
     external: true,
   },
   {
     name: "Instagram",
     href: socialLinks.find((link) => link.name === "Instagram")!.href,
     src: "/brand/spoon-icons/instagram.png",
-    top: "16.4%",
-    left: "32.9%",
+    top: "15.2%",
+    left: "34.5%",
     external: true,
   },
   {
     name: "TikTok",
     href: socialLinks.find((link) => link.name === "TikTok")!.href,
     src: "/brand/spoon-icons/tiktok.png",
-    top: "16.4%",
-    left: "65.3%",
+    top: "15.2%",
+    left: "65.5%",
     external: true,
   },
   {
     name: "Snapchat",
     href: socialLinks.find((link) => link.name === "Snapchat")!.href,
     src: "/brand/spoon-icons/snapchat.png",
-    top: "23.4%",
-    left: "75%",
+    top: "24%",
+    left: "76.5%",
     external: true,
   },
   {
     name: "Email",
     href: `mailto:${SUPPORT_EMAIL}`,
     src: "/brand/spoon-icons/email.png",
-    top: "31.3%",
-    left: "81.5%",
+    top: "34.5%",
+    left: "84.8%",
   },
 ]
 
@@ -248,7 +248,7 @@ function SpoonContact({ inverted = false }: { inverted?: boolean }) {
         <nav aria-label="Contact Social Spoon">
           {spoonItems.map((item, index) => {
             const className = cn(
-              "absolute flex size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center touch-manipulation",
+              "absolute flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center touch-manipulation",
               inverted && "rotate-180",
             )
             const logo = (
@@ -257,7 +257,7 @@ function SpoonContact({ inverted = false }: { inverted?: boolean }) {
                 alt=""
                 width={160}
                 height={160}
-                className="spoon-star size-8 object-contain"
+                className="spoon-star pointer-events-none size-6 object-contain"
                 style={{ animationDelay: `${index * 0.28}s` }}
               />
             )
