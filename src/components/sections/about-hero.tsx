@@ -21,14 +21,14 @@ export function AboutHero() {
       </div>
       <Container className="relative z-10 flex min-h-svh flex-col justify-end sm:block sm:min-h-0">
         <div className="relative max-w-xl pt-4 pb-10 sm:py-20 lg:max-w-[34rem] lg:py-24">
-          <p className="animate-fade-up hidden text-xs font-medium tracking-[0.28em] text-primary uppercase drop-shadow-[0_1px_10px_rgba(0,0,0,0.9)] sm:block">
+          <p className="animate-fade-up text-xs font-medium tracking-[0.28em] text-primary uppercase drop-shadow-[0_1px_10px_rgba(0,0,0,0.9)]">
             About
           </p>
           <h1 className="sr-only sm:not-sr-only sm:animate-fade-up sm:mt-5 sm:text-5xl sm:font-semibold sm:tracking-tight sm:text-balance sm:text-[#ffffff] sm:[text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_28px_rgba(0,0,0,0.85)] lg:text-[3.35rem] lg:leading-[1.08]">
             About Social Spoon
           </h1>
           <p
-            className="animate-fade-up text-lg leading-relaxed font-medium text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_22px_rgba(0,0,0,0.8)] sm:mt-6 sm:text-xl"
+            className="animate-fade-up mt-3 text-lg leading-relaxed font-medium text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_22px_rgba(0,0,0,0.8)] sm:mt-6 sm:text-xl"
             style={{ animationDelay: "160ms" }}
           >
             Practical Digital Solutions. Built Around Your Needs.
