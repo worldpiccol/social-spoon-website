@@ -25,7 +25,7 @@ export function FaqHero() {
             Frequently Asked Questions
           </h1>
           <p className="mt-3 max-w-[22rem] text-[0.95rem] leading-snug font-medium text-[#4A4A68] sm:text-lg">
-            Everything you need to know about growing your brand on social
+            Everything you need to know about Social Spoon
           </p>
         </div>
       </div>
