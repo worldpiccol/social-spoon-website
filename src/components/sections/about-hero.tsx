@@ -13,11 +13,11 @@ export function AboutHero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[78%_42%] sm:object-[72%_40%] lg:object-[68%_38%]"
+          className="object-contain object-top sm:object-right"
         />
-        <div className="absolute inset-0 bg-black/25" />
-        <div className="absolute inset-0 bg-linear-to-r from-black from-0% via-black/88 via-[42%] to-transparent to-[74%] sm:via-[38%] lg:via-black/80 lg:via-[34%] lg:to-[64%]" />
-        <div className="absolute inset-0 bg-linear-to-b from-black/55 via-transparent to-black/35 sm:from-black/35" />
+        <div className="absolute inset-0 bg-black/15 sm:bg-black/25" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/45 via-black/20 to-black/70 sm:bg-linear-to-r sm:from-black sm:from-0% sm:via-black/88 sm:via-[38%] sm:to-transparent sm:to-[74%] lg:via-black/80 lg:via-[34%] lg:to-[64%]" />
+        <div className="absolute inset-0 hidden bg-linear-to-b from-black/35 via-transparent to-black/35 sm:block" />
       </div>
       <Container className="relative z-10">
         <div className="relative max-w-xl py-16 sm:py-20 lg:max-w-[34rem] lg:py-24">
