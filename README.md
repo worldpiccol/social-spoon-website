@@ -54,6 +54,7 @@ Site copy, navigation, and social links live in `src/content/`.
 These are intentionally not invented:
 
 - Testimonials
+- Founder biography (the About page uses a short placeholder until the real bio is supplied)
 - Terms & Conditions body copy
 - Privacy Policy / Cookie Policy
 - Business address, phone number, and registration details

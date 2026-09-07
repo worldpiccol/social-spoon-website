@@ -4,6 +4,7 @@ import { FadeIn } from "@/components/fade-in"
 import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
 import { AboutHero } from "@/components/sections/about-hero"
+import { founder } from "@/content/founder"
 import { pageMetadata } from "@/lib/metadata"
 
 export const metadata = pageMetadata({
@@ -57,6 +58,34 @@ export default function AboutPage() {
         </div>
       </Section>
       <Section tone="muted">
+        <div className="grid items-start gap-8 lg:grid-cols-12 lg:items-center lg:gap-14">
+          <figure className="lg:col-span-5">
+            <Image
+              src={founder.image.src}
+              alt={founder.image.alt}
+              width={founder.image.width}
+              height={founder.image.height}
+              sizes="(min-width: 1024px) 420px, 100vw"
+              className="aspect-[4/5] w-full rounded-2xl object-cover object-[center_82%] shadow-[0_16px_40px_rgba(0,1,32,0.08)]"
+            />
+            <figcaption className="mt-3 text-sm text-muted-foreground">
+              {founder.name}, {founder.role}.
+            </figcaption>
+          </figure>
+          <FadeIn className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:col-span-7">
+            <p className="text-xs font-medium tracking-[0.22em] text-primary uppercase">
+              {founder.role}
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight text-balance text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
+              {founder.name}
+            </h2>
+            {founder.bio.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </FadeIn>
+        </div>
+      </Section>
+      <Section>
         <SectionHeading eyebrow="Our goal" heading="To help you move forward" />
         <FadeIn className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
           <p>Our goal is simple:</p>
