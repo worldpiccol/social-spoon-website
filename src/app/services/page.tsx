@@ -31,7 +31,7 @@ export default function ServicesPage() {
           <ServiceCatalog />
         </div>
       </Section>
-      <CtaSection />
+      <CtaSection showServicesCta={false} />
     </>
   )
 }

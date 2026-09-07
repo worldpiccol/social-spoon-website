@@ -3,7 +3,13 @@ import { ContactButton } from "@/components/contact-popup"
 import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
 
-export function CtaSection({ invert = false }: { invert?: boolean }) {
+export function CtaSection({
+  invert = false,
+  showServicesCta = true,
+}: {
+  invert?: boolean
+  showServicesCta?: boolean
+}) {
   return (
     <Section tone={invert ? "ink" : "muted"}>
       <div className="max-w-3xl">
@@ -23,25 +29,35 @@ export function CtaSection({ invert = false }: { invert?: boolean }) {
           resolve a digital issue, reach a targeted audience, or take your
           online presence to the next level, Social Spoon is ready to help.
         </p>
-        <p
-          className={
-            invert
-              ? "mt-4 max-w-2xl text-base leading-relaxed text-ink-foreground/75 sm:text-lg"
-              : "mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
-          }
-        >
-          Explore our services and find the solution that&apos;s right for you.
-        </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <ButtonLink
-            href="/services"
-            variant={invert ? "inverse" : "default"}
-            className="w-full sm:w-auto"
+        {showServicesCta ? (
+          <p
+            className={
+              invert
+                ? "mt-4 max-w-2xl text-base leading-relaxed text-ink-foreground/75 sm:text-lg"
+                : "mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+            }
           >
-            See Our Services
-          </ButtonLink>
+            Explore our services and find the solution that&apos;s right for you.
+          </p>
+        ) : null}
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          {showServicesCta ? (
+            <ButtonLink
+              href="/services"
+              variant={invert ? "inverse" : "default"}
+              className="w-full sm:w-auto"
+            >
+              See Our Services
+            </ButtonLink>
+          ) : null}
           <ContactButton
-            variant={invert ? "outline-inverse" : "outline"}
+            variant={
+              invert
+                ? "outline-inverse"
+                : showServicesCta
+                  ? "outline"
+                  : "default"
+            }
             className="w-full sm:w-auto"
           >
             Contact Us
