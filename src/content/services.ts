@@ -153,6 +153,12 @@ export const services: Service[] = [
         ],
       },
     ],
+    image: {
+      src: "/images/digital-social-issues.png",
+      alt: "Wrench and gear around a social app icon, representing digital account troubleshooting",
+      width: 1024,
+      height: 1024,
+    },
   },
   {
     id: "prepaid-advertising-accounts",
@@ -173,6 +179,12 @@ export const services: Service[] = [
         ],
       },
     ],
+    image: {
+      src: "/images/prepaid-ads-account.png",
+      alt: "Credit card and megaphone, representing prepaid ads account setup",
+      width: 1024,
+      height: 1024,
+    },
   },
   {
     id: "instagram-target-audience-setup",
@@ -227,6 +239,12 @@ export const services: Service[] = [
       "TikTok",
       "Google",
     ],
+    image: {
+      src: "/images/targeted-sponsored-ads.png",
+      alt: "Megaphone surrounded by social platform marks for multi-platform ads",
+      width: 1024,
+      height: 1024,
+    },
   },
   {
     id: "instagram-ads-issue-resolution",
@@ -247,6 +265,12 @@ export const services: Service[] = [
         ],
       },
     ],
+    image: {
+      src: "/images/instagram-ads-issues.png",
+      alt: "Instagram logo with a warning mark, representing ads account problems",
+      width: 1024,
+      height: 1024,
+    },
   },
   {
     id: "social-media-page-management",
@@ -267,6 +291,12 @@ export const services: Service[] = [
         ],
       },
     ],
+    image: {
+      src: "/images/monthly-page-management.png",
+      alt: "Calendar with a like and message, representing monthly page management",
+      width: 1024,
+      height: 1024,
+    },
   },
   {
     id: "content-creation-voice-over",
@@ -287,6 +317,12 @@ export const services: Service[] = [
         ],
       },
     ],
+    image: {
+      src: "/images/content-creation-voiceover.png",
+      alt: "Microphone and clapperboard, representing content creation and voice-over",
+      width: 1024,
+      height: 1024,
+    },
   },
   {
     id: "online-courses",
@@ -314,5 +350,11 @@ export const services: Service[] = [
         ],
       },
     ],
+    image: {
+      src: "/images/online-courses.png",
+      alt: "Open book with a play button, representing online digital courses",
+      width: 1024,
+      height: 1024,
+    },
   },
 ]
