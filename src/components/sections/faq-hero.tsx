@@ -21,14 +21,10 @@ export function FaqHero() {
             priority
             className="absolute top-1/2 left-1/2 h-auto w-[78%] max-w-[16rem] -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_10px_28px_rgba(0,1,32,0.14)] sm:max-w-[18rem]"
           />
-          <div className="absolute inset-x-0 bottom-[8%] px-5 text-center sm:bottom-[10%] lg:bottom-[12%]">
-            <h1 className="text-2xl font-bold tracking-tight text-[#000120] text-balance sm:text-3xl lg:text-[2.1rem]">
-              Frequently Asked Questions
-            </h1>
-            <p className="mx-auto mt-3 max-w-[22rem] text-[0.95rem] leading-snug font-medium text-[#4A4A68] sm:text-lg">
-              Everything you need to know about Social Spoon
-            </p>
-          </div>
+          <h1 className="sr-only">Frequently asked questions</h1>
+          <p className="absolute inset-x-0 bottom-[8%] px-5 text-center text-[0.95rem] leading-snug font-medium text-[#4A4A68] sm:bottom-[10%] sm:text-lg lg:bottom-[12%]">
+            Everything you need to know about Social Spoon
+          </p>
         </div>
       </div>
     </section>
