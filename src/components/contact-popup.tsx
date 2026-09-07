@@ -1,8 +1,16 @@
 "use client"
 
-import type { ComponentProps } from "react"
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type ComponentProps,
+} from "react"
+import { createPortal } from "react-dom"
 import Image from "next/image"
-import { Popover } from "@base-ui/react/popover"
 import type { VariantProps } from "class-variance-authority"
 import { cn } from "cn"
 import {
@@ -70,6 +78,59 @@ const spoonItems: SpoonItem[] = [
   },
 ]
 
+const SPOON_WIDTH = 208
+const SPOON_HEIGHT = SPOON_WIDTH * (452 / 258)
+const SPOON_GAP = 8
+const VIEWPORT_MARGIN = 12
+
+type SpoonPlacement = {
+  top: number
+  left: number
+  width: number
+  inverted: boolean
+}
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max)
+}
+
+function placeSpoon(
+  anchor: HTMLElement,
+  preferredSide: "top" | "bottom" | "left" | "right",
+): SpoonPlacement {
+  const rect = anchor.getBoundingClientRect()
+  const viewportWidth = window.innerWidth
+  const viewportHeight = window.innerHeight
+  const spaceAbove = rect.top - VIEWPORT_MARGIN
+  const spaceBelow = viewportHeight - rect.bottom - VIEWPORT_MARGIN
+  const preferAbove = preferredSide !== "bottom"
+  const aboveFits = spaceAbove >= SPOON_HEIGHT + SPOON_GAP
+  const belowFits = spaceBelow >= SPOON_HEIGHT + SPOON_GAP
+
+  let inverted = false
+  if (preferAbove) {
+    inverted = aboveFits ? false : belowFits || spaceBelow > spaceAbove
+  } else {
+    inverted = belowFits ? true : !(aboveFits || spaceAbove >= spaceBelow)
+  }
+
+  const available = inverted ? spaceBelow : spaceAbove
+  const scale = clamp((available - SPOON_GAP) / SPOON_HEIGHT, 0.55, 1)
+  const width = SPOON_WIDTH * scale
+  const height = SPOON_HEIGHT * scale
+  const centerX = rect.left + rect.width / 2
+  const left = clamp(
+    centerX - width / 2,
+    VIEWPORT_MARGIN,
+    Math.max(VIEWPORT_MARGIN, viewportWidth - width - VIEWPORT_MARGIN),
+  )
+  const top = inverted
+    ? rect.bottom + SPOON_GAP
+    : rect.top - height - SPOON_GAP
+
+  return { top, left, width, inverted }
+}
+
 export function ContactButton({
   children,
   className,
@@ -82,60 +143,106 @@ export function ContactButton({
   VariantProps<typeof buttonVariants> & {
     side?: "top" | "bottom" | "left" | "right"
   }) {
-  const pinTowardTrigger = side === "bottom"
+  const titleId = useId()
+  const descriptionId = useId()
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const [open, setOpen] = useState(false)
+  const [placement, setPlacement] = useState<SpoonPlacement | null>(null)
+
+  const updatePlacement = useCallback(() => {
+    const trigger = triggerRef.current
+    if (!trigger) return
+    setPlacement(placeSpoon(trigger, side))
+  }, [side])
+
+  const close = useCallback(() => setOpen(false), [])
+
+  useLayoutEffect(() => {
+    if (!open) return
+    updatePlacement()
+    window.addEventListener("resize", updatePlacement)
+    window.addEventListener("scroll", updatePlacement, true)
+    return () => {
+      window.removeEventListener("resize", updatePlacement)
+      window.removeEventListener("scroll", updatePlacement, true)
+    }
+  }, [open, updatePlacement])
+
+  useEffect(() => {
+    if (!open) return
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") close()
+    }
+    window.addEventListener("keydown", onKeyDown)
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => {
+      window.removeEventListener("keydown", onKeyDown)
+      document.body.style.overflow = previousOverflow
+    }
+  }, [open, close])
 
   return (
-    <Popover.Root modal>
-      <Popover.Trigger
-        render={
-          <Button
-            type="button"
-            variant={variant}
-            size={size}
-            className={cn("w-fit max-w-full", className)}
-            {...props}
-          />
-        }
-        onClick={onClick}
+    <>
+      <Button
+        ref={triggerRef}
+        type="button"
+        variant={variant}
+        size={size}
+        className={cn("w-fit max-w-full", className)}
+        aria-haspopup="dialog"
+        aria-expanded={open}
+        onClick={(event) => {
+          onClick?.(event)
+          if (event.defaultPrevented) return
+          setOpen((current) => !current)
+        }}
+        {...props}
       >
         {children}
-      </Popover.Trigger>
-      <Popover.Portal>
-        <Popover.Backdrop className="fixed inset-0 z-[60] bg-[#000120]/30 transition-opacity duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0 supports-backdrop-filter:backdrop-blur-sm" />
-        <Popover.Positioner
-          side={side}
-          align="center"
-          sideOffset={pinTowardTrigger ? 6 : 10}
-          collisionPadding={16}
-          positionMethod="fixed"
-          collisionAvoidance={{
-            side: "none",
-            align: "none",
-            fallbackAxisSide: "none",
-          }}
-          className="z-[70]"
-        >
-          <Popover.Popup className="origin-[var(--transform-origin)] outline-none">
-            <Popover.Close className="sr-only">Close contact menu</Popover.Close>
-            <Popover.Title className="sr-only">
-              Contact Social Spoon
-            </Popover.Title>
-            <Popover.Description className="sr-only">
-              Reach Social Spoon on WhatsApp, Instagram, TikTok, Snapchat, or
-              email.
-            </Popover.Description>
-            <SpoonContact inverted={pinTowardTrigger} />
-          </Popover.Popup>
-        </Popover.Positioner>
-      </Popover.Portal>
-    </Popover.Root>
+      </Button>
+      {open && placement
+        ? createPortal(
+            <div className="fixed inset-0 z-[80]">
+              <button
+                type="button"
+                aria-label="Close contact menu"
+                className="absolute inset-0 bg-[#000120]/30 supports-backdrop-filter:backdrop-blur-sm"
+                onClick={close}
+              />
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby={titleId}
+                aria-describedby={descriptionId}
+                className="absolute outline-none"
+                style={{
+                  top: placement.top,
+                  left: placement.left,
+                  width: placement.width,
+                }}
+              >
+                <h2 id={titleId} className="sr-only">
+                  Contact Social Spoon
+                </h2>
+                <p id={descriptionId} className="sr-only">
+                  Reach Social Spoon on WhatsApp, Instagram, TikTok, Snapchat,
+                  or email.
+                </p>
+                <SpoonContact inverted={placement.inverted} />
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
+    </>
   )
 }
 
 function SpoonContact({ inverted = false }: { inverted?: boolean }) {
   return (
     <div className={cn(inverted && "rotate-180")}>
-      <div className="animate-spoon-pop relative w-52 drop-shadow-[0_12px_28px_rgba(0,1,32,0.22)]">
+      <div className="animate-spoon-pop relative drop-shadow-[0_12px_28px_rgba(0,1,32,0.22)]">
         <Image
           src="/brand/contact-spoon.png"
           alt=""
