@@ -13,6 +13,5 @@ export const founder = {
   },
   bio: [
     "Miss Prisca Chukwu is the founder and CEO of Social Spoon. She started the company in 2023 to help individuals, creators, and businesses navigate digital challenges with a structured, professional approach.",
-    "A fuller biography will be added here.",
   ],
 } as const
