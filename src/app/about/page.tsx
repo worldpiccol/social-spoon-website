@@ -5,6 +5,11 @@ import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
 import { AboutHero } from "@/components/sections/about-hero"
 import { founder } from "@/content/founder"
+import {
+  SUPPORT_EMAIL,
+  SUPPORT_PHONE,
+  SUPPORT_WHATSAPP,
+} from "@/content/site"
 import { pageMetadata } from "@/lib/metadata"
 
 export const metadata = pageMetadata({
@@ -40,6 +45,24 @@ export default function AboutPage() {
               a limitation. We work with clients wherever they are, providing
               accessible digital support and solutions tailored to their
               individual needs.
+            </p>
+            <p>
+              Enquiries:{" "}
+              <a
+                href={SUPPORT_WHATSAPP}
+                className="font-medium text-foreground underline-offset-4 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {SUPPORT_PHONE}
+              </a>
+              {" · "}
+              <a
+                href={`mailto:${SUPPORT_EMAIL}`}
+                className="font-medium text-foreground underline-offset-4 hover:underline"
+              >
+                {SUPPORT_EMAIL}
+              </a>
             </p>
           </FadeIn>
           <figure className="order-2 xl:order-1 xl:col-span-5">

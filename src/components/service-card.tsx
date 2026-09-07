@@ -59,7 +59,11 @@ export function ServiceCard({
           flipped && "[transform:rotateY(180deg)]",
         )}
       >
-        <div className="absolute inset-0 flex flex-col overflow-hidden rounded-2xl bg-white p-5 shadow-[0_8px_30px_rgba(0,1,32,0.06)] ring-1 ring-border [backface-visibility:hidden] sm:p-6">
+        <div
+          className="absolute inset-0 flex flex-col overflow-hidden rounded-2xl bg-white p-5 shadow-[0_8px_30px_rgba(0,1,32,0.06)] ring-1 ring-border [backface-visibility:hidden] sm:p-6"
+          aria-hidden={flipped}
+          inert={flipped}
+        >
           <div
             className={cn(!hasVideo && "flex flex-1 flex-col")}
             onMouseEnter={() => {
@@ -113,7 +117,11 @@ export function ServiceCard({
           ) : null}
         </div>
 
-        <div className="absolute inset-0 flex flex-col overflow-y-auto rounded-2xl bg-ink p-5 text-ink-foreground shadow-[0_8px_30px_rgba(0,1,32,0.12)] ring-1 ring-white/10 [backface-visibility:hidden] [transform:rotateY(180deg)] sm:p-6">
+        <div
+          className="absolute inset-0 flex flex-col overflow-y-auto rounded-2xl bg-ink p-5 text-ink-foreground shadow-[0_8px_30px_rgba(0,1,32,0.12)] ring-1 ring-white/10 [backface-visibility:hidden] [transform:rotateY(180deg)] sm:p-6"
+          aria-hidden={!flipped}
+          inert={!flipped}
+        >
           <h3 className="text-xl font-semibold tracking-tight text-balance">
             {service.title}
           </h3>

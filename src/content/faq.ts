@@ -85,10 +85,40 @@ export const faqItems: FaqItem[] = [
     ],
   },
   {
+    id: "ads-pricing",
+    question: "How do you price advertising work?",
+    paragraphs: [
+      "Advertising work is quoted after we understand the campaign or the problem.",
+      "Targeted sponsored ads are a management fee plus ad spend, confirmed per campaign after a brief.",
+      "Prepaid ads account setup, Instagram audience setup, and Instagram ads-issue help are quoted after assessment or after we see the error.",
+    ],
+  },
+  {
+    id: "page-management",
+    question: "What is included in monthly page management?",
+    paragraphs: [
+      "Monthly page management is a retainer, quoted after we review the pages.",
+      "It typically includes a content plan, posting, basic inbox handling, and optional ads if you want them included.",
+      "The exact scope is agreed before the month starts. Advertising results are not guaranteed.",
+    ],
+  },
+  {
+    id: "courses",
+    question: "What online courses do you offer?",
+    paragraphs: [
+      "We currently have three courses available. Enrolment is by enquiry — use Contact or Get Started to ask about availability and pricing. There is no self-serve course portal.",
+    ],
+    bullets: [
+      "Instagram Ads Essentials",
+      "Social Page Management for Small Businesses",
+      "Protecting Your Digital Presence",
+    ],
+  },
+  {
     id: "get-started",
     question: "How do I get started?",
     paragraphs: [
-      "Choose the service that best matches your situation, then use Contact or Get Started to reach Social Spoon on WhatsApp, Instagram, TikTok, Snapchat, or email support@mysocialspoon.com.",
+      "Choose the service that best matches your situation, then use Contact or Get Started to reach Social Spoon on WhatsApp at +234 704 217 4287, Instagram, TikTok, Snapchat, or email support@mysocialspoon.com.",
       "Our team can help you understand the available options and requirements.",
     ],
   },

@@ -55,15 +55,12 @@ These are intentionally not invented:
 
 - Testimonials
 - Founder biography (the About page uses a short placeholder until the real bio is supplied)
-- Terms & Conditions body copy
-- Privacy Policy / Cookie Policy
-- Business address, phone number, and registration details
-- Course titles (the Online Courses card notes that a course is available, without listing names)
+- Business address and registration details
 
-The Terms page is a placeholder. Testimonials stay hidden until real reviews are added to `src/content/testimonials.ts`.
+Testimonials stay hidden until real reviews are added to `src/content/testimonials.ts`.
 
 ## Contact
 
-Contact Us and Get Started open a small spoon/pin next to the button, with links to Instagram, WhatsApp, TikTok, Snapchat, and email. There is no contact form page.
+Contact Us and Get Started open a small spoon/pin next to the button, with links to Instagram, WhatsApp, TikTok, Snapchat, and email. `/contact` is a contact page with the same popup — it does not redirect to the homepage.
 
-Public enquiries can be sent to [support@mysocialspoon.com](mailto:support@mysocialspoon.com).
+Public enquiries: [+234 704 217 4287](https://wa.me/2347042174287) or [support@mysocialspoon.com](mailto:support@mysocialspoon.com).

@@ -33,11 +33,19 @@ function resolveSiteUrl() {
   return "http://127.0.0.1:43123";
 }
 
-export const SITE_URL = resolveSiteUrl()
+export const SITE_URL = resolveSiteUrl();
 
 export const SUPPORT_EMAIL = (
   process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@mysocialspoon.com"
 ).trim();
+
+export const SUPPORT_PHONE = "+234 704 217 4287";
+
+export const SUPPORT_PHONE_TEL = "tel:+2347042174287";
+
+export const SUPPORT_WHATSAPP = "https://wa.me/2347042174287";
+
+export const LEGAL_UPDATED = "7 September 2026";
 
 export const isSupportEmailConfigured = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
   SUPPORT_EMAIL,
@@ -46,17 +54,17 @@ export const isSupportEmailConfigured = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
 export const socialLinks = [
   {
     name: "Instagram",
-    href: "https://www.instagram.com/social_._spoon?igsi=czE3YTIydzNpeW5m",
+    href: "https://www.instagram.com/social_._spoon",
     handle: "@social_._spoon",
   },
   {
     name: "WhatsApp",
-    href: "https://wa.me/message/RMOXLGERYJ5RF1",
-    handle: "Message us on WhatsApp",
+    href: SUPPORT_WHATSAPP,
+    handle: SUPPORT_PHONE,
   },
   {
     name: "TikTok",
-    href: "https://www.tiktok.com/@social_.spoon?_r=1&_t=ZS-99O3Ftk2wzg",
+    href: "https://www.tiktok.com/@social_.spoon",
     handle: "@social_.spoon",
   },
   {
@@ -76,6 +84,7 @@ export const navLinks = [
 export const legalLinks = [
   { name: "Refund Policy", href: "/refund-policy" },
   { name: "Terms & Conditions", href: "/terms" },
+  { name: "Privacy Policy", href: "/privacy" },
 ] as const;
 
 export const primaryCta = {

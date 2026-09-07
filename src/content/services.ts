@@ -51,9 +51,10 @@ export const services: Service[] = [
     group: "recovery",
     title: "Instagram Account Recovery",
     summary:
-      "We assist with the recovery and reinstatement of Instagram accounts that have been suspended, disabled, or restricted.",
+      "Assistance with Instagram accounts that have been suspended, disabled, or restricted.",
     details: [
-      "We assist with the recovery and reinstatement of Instagram accounts that have been suspended, disabled, or restricted. Our team works to restore access to your account. We have two recovery options:",
+      "We work within Instagram’s policies to help restore access where the account is eligible. Two recovery options are available after we assess the case.",
+      "We never ask for passwords, 2FA codes, or recovery codes. Outcomes are not guaranteed and depend on Instagram’s review.",
     ],
     plans: [
       {
@@ -61,15 +62,15 @@ export const services: Service[] = [
         items: [
           "Starting from $65 (₦90,000)",
           "Estimated timeframe: 1–3 months",
-          "Success rate: 87–90%",
+          "Historical success rate: 87–90% (not a guarantee)",
         ],
       },
       {
         name: "Express Recovery",
         items: [
           "Starting from $2,500",
-          "Estimated timeframe: 72 working hours",
-          "Success rate: 99.9%",
+          "Estimated timeframe: about 72 working hours",
+          "Historical success rate: 99.9% (not a guarantee)",
         ],
       },
     ],
@@ -80,9 +81,19 @@ export const services: Service[] = [
     group: "recovery",
     title: "Facebook Account Recovery",
     summary:
-      "We help clients recover Facebook accounts that have been suspended, disabled, or restricted.",
+      "Help with suspended, disabled, or restricted Facebook profiles and Pages.",
     details: [
-      "We help clients recover Facebook accounts that have been suspended, disabled, or restricted.",
+      "We help with Facebook profiles and Pages that have been suspended, disabled, or restricted, working within Meta’s policies and processes.",
+      "We never ask for passwords, 2FA codes, or recovery codes. Outcomes depend on Meta’s review and are not guaranteed.",
+    ],
+    plans: [
+      {
+        name: "Pricing & timeframe",
+        items: [
+          "Price: quoted after assessment",
+          "Timeframe: depends on Meta review",
+        ],
+      },
     ],
   },
   {
@@ -90,9 +101,19 @@ export const services: Service[] = [
     group: "recovery",
     title: "WhatsApp Ban Resolution",
     summary:
-      "We assist with WhatsApp accounts that have been banned or restricted and guide clients.",
+      "Help with banned or restricted WhatsApp numbers, including WhatsApp Business.",
     details: [
-      "We assist with WhatsApp accounts that have been banned or restricted and guide clients.",
+      "We assist when a WhatsApp or WhatsApp Business number has been banned or restricted, and we guide you through the available review options.",
+      "We never ask for passwords or authentication codes. Outcomes depend on WhatsApp’s review and are not guaranteed.",
+    ],
+    plans: [
+      {
+        name: "Pricing & timeframe",
+        items: [
+          "Price: quoted after assessment",
+          "Timeframe: varies with WhatsApp review",
+        ],
+      },
     ],
   },
   {
@@ -100,9 +121,19 @@ export const services: Service[] = [
     group: "recovery",
     title: "Digital & Social Media Issues",
     summary:
-      "Assistance with digital marketing and social media issues that may affect your business or online presence.",
+      "Triage for login problems, Ads Manager access, Page roles, and similar digital issues.",
     details: [
-      "We provide assistance with various digital marketing and social media-related issues that may affect your business or online presence. Contact us with your specific issue so we can assess how we can help.",
+      "We assess login problems, Ads Manager access, Page role issues, and similar problems that affect your accounts or business presence.",
+      "We never ask for passwords or authentication codes. After we understand the issue, we explain the options and next steps.",
+    ],
+    plans: [
+      {
+        name: "Pricing & timeframe",
+        items: [
+          "Price: quoted after we understand the issue",
+          "Timeframe: depends on the platform and the issue",
+        ],
+      },
     ],
   },
   {
@@ -110,9 +141,19 @@ export const services: Service[] = [
     group: "advertising",
     title: "Prepaid Ads Account Setup",
     summary:
-      "We help businesses set up prepaid ad accounts so they can pay for Instagram ads by debit card or bank transfer.",
+      "Help setting up prepaid ad accounts so spend can be funded by card or transfer.",
     details: [
-      "We help businesses set up prepaid ad accounts, making it easier to pay for ads on Instagram using their debit card or transfer from their bank account.",
+      "We help set up prepaid advertising accounts so campaign spend can be funded by debit card or bank transfer, rather than being blocked by payment method limits.",
+      "Setup requirements depend on the platform and the business. We confirm the steps after an assessment.",
+    ],
+    plans: [
+      {
+        name: "Pricing & timeframe",
+        items: [
+          "Price: quoted after assessment",
+          "Timeframe: confirmed after we review your setup",
+        ],
+      },
     ],
   },
   {
@@ -120,9 +161,19 @@ export const services: Service[] = [
     group: "advertising",
     title: "Instagram Target Audience Setup",
     summary:
-      "We help you set up the right Instagram audience so your ads can reach people who are more likely to convert.",
+      "Location, interests, behaviour, and demographics set up so Instagram ads can reach the right people.",
     details: [
-      "We help you identify and set up the right audience for your Instagram campaigns based on factors such as location, interests, behaviours, demographics, and your business goals, so your ads can reach your target audience and convert into sales.",
+      "We set up Instagram audiences using location, interests, behaviour, demographics, and your campaign goal, so ads are pointed at people more likely to respond.",
+      "A short brief is enough to start. We do not guarantee sales, leads, or conversions.",
+    ],
+    plans: [
+      {
+        name: "Pricing & timeframe",
+        items: [
+          "Price: quoted after a short brief",
+          "Timeframe: confirmed after the brief",
+        ],
+      },
     ],
   },
   {
@@ -132,7 +183,17 @@ export const services: Service[] = [
     summary:
       "Targeted advertising campaigns across Instagram, Facebook, X, Snapchat, TikTok, and Google.",
     details: [
-      "We create and manage targeted advertising campaigns across Instagram, Facebook, X (Twitter), Snapchat, TikTok, and Google to help businesses reach the right audience and generate better results.",
+      "We create and manage sponsored campaigns on the platforms below, with targeting and placement matched to the brief.",
+      "Campaigns are quoted individually. Results such as sales, leads, or conversions are not guaranteed.",
+    ],
+    plans: [
+      {
+        name: "Pricing & timeframe",
+        items: [
+          "Management fee plus ad spend, quoted per campaign",
+          "Timeframe: set with you before the campaign starts",
+        ],
+      },
     ],
     platforms: [
       "Instagram",
@@ -148,9 +209,19 @@ export const services: Service[] = [
     group: "advertising",
     title: "Instagram Ads Issues",
     summary:
-      "Help with rejected ads, restrictions, disabled ads, payment problems, and other Instagram advertising issues.",
+      "Help with rejected ads, restrictions, disabled ads accounts, and payment problems.",
     details: [
-      "Having problems running Instagram ads? We help diagnose and resolve common advertising issues, including rejected ads, ads restrictions, disabled ads, payment-related problems, etc.",
+      "We help diagnose rejected ads, advertising restrictions, disabled ads accounts, payment problems, and similar Instagram ads errors.",
+      "Send the error or account status when you get in touch so we can see what Instagram is blocking.",
+    ],
+    plans: [
+      {
+        name: "Pricing & timeframe",
+        items: [
+          "Price: quoted after seeing the error",
+          "Timeframe: depends on Instagram’s review of the issue",
+        ],
+      },
     ],
   },
   {
@@ -158,9 +229,19 @@ export const services: Service[] = [
     group: "growth",
     title: "Monthly Page Management",
     summary:
-      "We handle your social media presence so you can focus on your business.",
+      "A monthly retainer for content planning, posting, basic inbox handling, and optional ads.",
     details: [
-      "Let us handle your social media presence while you focus on your business. Our management service covers running of sponsored ads, content planning, posting, and overall page maintenance, etc.",
+      "We handle day-to-day presence on your pages: a content plan, posting, basic inbox handling, and optional ads if you want them included.",
+      "The scope is confirmed after we review the pages. Advertising results are not guaranteed.",
+    ],
+    plans: [
+      {
+        name: "Pricing & timeframe",
+        items: [
+          "Monthly retainer, quoted after reviewing the pages",
+          "Ongoing monthly service once the plan is agreed",
+        ],
+      },
     ],
   },
   {
@@ -168,9 +249,19 @@ export const services: Service[] = [
     group: "growth",
     title: "Content Creation & Voice Over",
     summary:
-      "Engaging content and professional voice-over materials to promote your products or services.",
+      "Brief, script, and finished assets, including voice-over, to promote your products or services.",
     details: [
-      "We create engaging content and professional voice-over materials designed to help businesses promote their products or services, and maintain a strong online presence.",
+      "We take a brief, write or refine the script, and deliver finished content and voice-over assets for your pages or campaigns.",
+      "Packages are scoped around the brief, so formats and quantity are confirmed before production starts.",
+    ],
+    plans: [
+      {
+        name: "Pricing & timeframe",
+        items: [
+          "Priced per package after the brief",
+          "Delivery timeline confirmed with the package",
+        ],
+      },
     ],
   },
   {
@@ -178,9 +269,26 @@ export const services: Service[] = [
     group: "growth",
     title: "Online Courses",
     summary:
-      "Learn practical digital marketing skills through our online courses.",
+      "Practical digital courses for ads, page management, and protecting your accounts. Enrolment is by enquiry.",
     details: [
-      "Learn practical digital marketing skills through our online courses. We have the following course available:",
+      "We currently have the following courses available. Enrolment is by enquiry — use Contact us to ask about availability, pricing, and how to join. There is no self-serve course portal.",
+    ],
+    plans: [
+      {
+        name: "Courses available",
+        items: [
+          "Instagram Ads Essentials",
+          "Social Page Management for Small Businesses",
+          "Protecting Your Digital Presence",
+        ],
+      },
+      {
+        name: "Pricing & timeframe",
+        items: [
+          "Quoted after enquiry",
+          "Schedule confirmed when you enrol",
+        ],
+      },
     ],
   },
 ]

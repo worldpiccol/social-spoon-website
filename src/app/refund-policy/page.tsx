@@ -1,6 +1,9 @@
 import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
-import { SUPPORT_EMAIL } from "@/content/site"
+import {
+  LEGAL_UPDATED,
+  SUPPORT_EMAIL,
+} from "@/content/site"
 import { pageMetadata } from "@/lib/metadata"
 
 export const metadata = pageMetadata({
@@ -99,7 +102,7 @@ export default function RefundPolicyPage() {
             before making payment.
           </p>
         </section>
-        <p className="text-sm">Last Updated: [Insert Date]</p>
+        <p className="text-sm">Last Updated: {LEGAL_UPDATED}</p>
       </div>
     </Section>
   )

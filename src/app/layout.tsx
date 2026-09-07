@@ -8,6 +8,7 @@ import {
   SITE_TAGLINE,
   SITE_URL,
   SUPPORT_EMAIL,
+  SUPPORT_PHONE,
   socialLinks,
 } from "@/content/site"
 import "./globals.css"
@@ -72,10 +73,12 @@ const jsonLd = {
   slogan: SITE_TAGLINE,
   url: SITE_URL,
   email: SUPPORT_EMAIL,
+  telephone: SUPPORT_PHONE,
   sameAs: socialLinks.map((link) => link.href),
   contactPoint: {
     "@type": "ContactPoint",
     email: SUPPORT_EMAIL,
+    telephone: SUPPORT_PHONE,
     contactType: "customer support",
   },
 }

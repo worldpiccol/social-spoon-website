@@ -9,6 +9,8 @@ import {
   SITE_SHORT_DESCRIPTION,
   SITE_TAGLINE,
   SUPPORT_EMAIL,
+  SUPPORT_PHONE,
+  SUPPORT_WHATSAPP,
 } from "@/content/site"
 
 export function Footer() {
@@ -23,12 +25,22 @@ export function Footer() {
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
             {SITE_SHORT_DESCRIPTION}
           </p>
-          <a
-            href={`mailto:${SUPPORT_EMAIL}`}
-            className="mt-4 inline-block text-sm font-medium text-foreground underline-offset-4 hover:underline"
-          >
-            {SUPPORT_EMAIL}
-          </a>
+          <div className="mt-4 flex flex-col items-start gap-2">
+            <a
+              href={SUPPORT_WHATSAPP}
+              className="text-sm font-medium text-foreground underline-offset-4 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {SUPPORT_PHONE}
+            </a>
+            <a
+              href={`mailto:${SUPPORT_EMAIL}`}
+              className="text-sm font-medium text-foreground underline-offset-4 hover:underline"
+            >
+              {SUPPORT_EMAIL}
+            </a>
+          </div>
         </div>
         <div className="lg:col-span-2">
           <h2 className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
