@@ -13,18 +13,13 @@ import { createPortal } from "react-dom"
 import Image from "next/image"
 import type { VariantProps } from "class-variance-authority"
 import { cn } from "cn"
-import {
-  EmailIcon,
-  FacebookIcon,
-  socialIcons,
-} from "@/components/social-icons"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { socialLinks, SUPPORT_EMAIL } from "@/content/site"
 
 type SpoonItem = {
   name: string
   href?: string
-  icon: typeof EmailIcon
+  src: string
   top: string
   left: string
   external?: boolean
@@ -33,48 +28,48 @@ type SpoonItem = {
 const spoonItems: SpoonItem[] = [
   {
     name: "Facebook",
-    icon: FacebookIcon,
-    top: "30.7%",
-    left: "12%",
+    src: "/brand/spoon-icons/facebook.png",
+    top: "31.3%",
+    left: "16.8%",
   },
   {
     name: "WhatsApp",
     href: socialLinks.find((link) => link.name === "WhatsApp")!.href,
-    icon: socialIcons.WhatsApp,
-    top: "21.1%",
-    left: "22%",
+    src: "/brand/spoon-icons/whatsapp.png",
+    top: "23.4%",
+    left: "24.1%",
     external: true,
   },
   {
     name: "Instagram",
     href: socialLinks.find((link) => link.name === "Instagram")!.href,
-    icon: socialIcons.Instagram,
-    top: "17.3%",
-    left: "38%",
+    src: "/brand/spoon-icons/instagram.png",
+    top: "16.4%",
+    left: "32.9%",
     external: true,
   },
   {
     name: "TikTok",
     href: socialLinks.find((link) => link.name === "TikTok")!.href,
-    icon: socialIcons.TikTok,
-    top: "17.3%",
-    left: "62%",
+    src: "/brand/spoon-icons/tiktok.png",
+    top: "16.4%",
+    left: "65.3%",
     external: true,
   },
   {
     name: "Snapchat",
     href: socialLinks.find((link) => link.name === "Snapchat")!.href,
-    icon: socialIcons.Snapchat,
-    top: "23.1%",
-    left: "72.4%",
+    src: "/brand/spoon-icons/snapchat.png",
+    top: "23.4%",
+    left: "75%",
     external: true,
   },
   {
     name: "Email",
     href: `mailto:${SUPPORT_EMAIL}`,
-    icon: EmailIcon,
-    top: "30.7%",
-    left: "80.5%",
+    src: "/brand/spoon-icons/email.png",
+    top: "31.3%",
+    left: "81.5%",
   },
 ]
 
@@ -252,10 +247,18 @@ function SpoonContact({ inverted = false }: { inverted?: boolean }) {
         />
         <nav aria-label="Contact Social Spoon">
           {spoonItems.map((item) => {
-            const Icon = item.icon
             const className = cn(
-              "absolute flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-[0_2px_8px_rgba(0,1,32,0.2)] ring-1 ring-black/8 touch-manipulation",
+              "absolute flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center touch-manipulation",
               inverted && "rotate-180",
+            )
+            const logo = (
+              <Image
+                src={item.src}
+                alt=""
+                width={128}
+                height={128}
+                className="size-7 object-contain"
+              />
             )
             if (!item.href) {
               return (
@@ -265,7 +268,7 @@ function SpoonContact({ inverted = false }: { inverted?: boolean }) {
                   className={className}
                   aria-hidden="true"
                 >
-                  <Icon className="size-7" />
+                  {logo}
                 </span>
               )
             }
@@ -284,7 +287,7 @@ function SpoonContact({ inverted = false }: { inverted?: boolean }) {
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : undefined)}
               >
-                <Icon className="size-7" />
+                {logo}
               </a>
             )
           })}
