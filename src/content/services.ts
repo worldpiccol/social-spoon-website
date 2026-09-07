@@ -14,6 +14,12 @@ export type Service = {
   plans?: ServicePlan[]
   platforms?: string[]
   youtubeId?: string
+  image?: {
+    src: string
+    alt: string
+    width: number
+    height: number
+  }
 }
 
 export const serviceGroups: {
@@ -175,6 +181,12 @@ export const services: Service[] = [
         ],
       },
     ],
+    image: {
+      src: "/images/instagram-target-audience.jpg",
+      alt: "Instagram target audience: a bullseye around the Instagram logo, with people around it",
+      width: 1024,
+      height: 1024,
+    },
   },
   {
     id: "targeted-sponsored-advertising",

@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import { cn } from "cn"
 import { ContactButton } from "@/components/contact-popup"
 import { YoutubeEmbed } from "@/components/youtube-embed"
@@ -16,6 +17,8 @@ export function ServiceCard({
   const [flipped, setFlipped] = useState(false)
   const [hoverable, setHoverable] = useState(false)
   const hasVideo = Boolean(service.youtubeId)
+  const hasImage = Boolean(service.image)
+  const hasFrontMedia = hasVideo || hasImage
 
   useEffect(() => {
     const media = window.matchMedia("(hover: hover) and (pointer: fine)")
@@ -65,7 +68,7 @@ export function ServiceCard({
           inert={flipped}
         >
           <div
-            className={cn(!hasVideo && "flex flex-1 flex-col")}
+            className={cn(!hasFrontMedia && "flex flex-1 flex-col")}
             onMouseEnter={() => {
               if (hoverable && hasVideo) setFlipped(true)
             }}
@@ -82,7 +85,7 @@ export function ServiceCard({
             <p
               className={cn(
                 "mt-4 leading-relaxed text-muted-foreground",
-                !hasVideo && "flex-1",
+                !hasFrontMedia && "flex-1",
               )}
             >
               {service.summary}
@@ -112,6 +115,16 @@ export function ServiceCard({
                 videoId={service.youtubeId}
                 title={`${service.title} video`}
                 className="h-full max-h-full w-auto"
+              />
+            </div>
+          ) : service.image ? (
+            <div className="mt-4 flex min-h-0 flex-1 items-center justify-center">
+              <Image
+                src={service.image.src}
+                alt={service.image.alt}
+                width={service.image.width}
+                height={service.image.height}
+                className="h-full max-h-full w-auto max-w-full object-contain"
               />
             </div>
           ) : null}
