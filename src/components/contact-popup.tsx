@@ -4,6 +4,7 @@ import type { ComponentProps } from "react"
 import Image from "next/image"
 import { Popover } from "@base-ui/react/popover"
 import type { VariantProps } from "class-variance-authority"
+import { cn } from "cn"
 import {
   EmailIcon,
   FacebookIcon,
@@ -81,15 +82,17 @@ export function ContactButton({
   VariantProps<typeof buttonVariants> & {
     side?: "top" | "bottom" | "left" | "right"
   }) {
+  const pinTowardTrigger = side === "bottom"
+
   return (
-    <Popover.Root>
+    <Popover.Root modal>
       <Popover.Trigger
         render={
           <Button
             type="button"
             variant={variant}
             size={size}
-            className={className}
+            className={cn("w-fit max-w-full", className)}
             {...props}
           />
         }
@@ -98,10 +101,11 @@ export function ContactButton({
         {children}
       </Popover.Trigger>
       <Popover.Portal>
+        <Popover.Backdrop className="fixed inset-0 z-[60] bg-[#000120]/30 transition-opacity duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0 supports-backdrop-filter:backdrop-blur-sm" />
         <Popover.Positioner
           side={side}
           align="center"
-          sideOffset={10}
+          sideOffset={pinTowardTrigger ? 6 : 10}
           collisionPadding={16}
           positionMethod="fixed"
           collisionAvoidance={{
@@ -109,9 +113,10 @@ export function ContactButton({
             align: "none",
             fallbackAxisSide: "none",
           }}
-          className="z-50"
+          className="z-[70]"
         >
           <Popover.Popup className="origin-[var(--transform-origin)] outline-none">
+            <Popover.Close className="sr-only">Close contact menu</Popover.Close>
             <Popover.Title className="sr-only">
               Contact Social Spoon
             </Popover.Title>
@@ -119,7 +124,7 @@ export function ContactButton({
               Reach Social Spoon on WhatsApp, Instagram, TikTok, Snapchat, or
               email.
             </Popover.Description>
-            <SpoonContact />
+            <SpoonContact inverted={pinTowardTrigger} />
           </Popover.Popup>
         </Popover.Positioner>
       </Popover.Portal>
@@ -127,53 +132,57 @@ export function ContactButton({
   )
 }
 
-function SpoonContact() {
+function SpoonContact({ inverted = false }: { inverted?: boolean }) {
   return (
-    <div className="animate-spoon-pop relative w-52 drop-shadow-[0_12px_28px_rgba(0,1,32,0.22)]">
-      <Image
-        src="/brand/contact-spoon.png"
-        alt=""
-        width={258}
-        height={452}
-        className="h-auto w-full"
-      />
-      <nav aria-label="Contact Social Spoon">
-        {spoonItems.map((item) => {
-          const Icon = item.icon
-          const className =
-            "absolute flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-black"
-          if (!item.href) {
+    <div className={cn(inverted && "rotate-180")}>
+      <div className="animate-spoon-pop relative w-52 drop-shadow-[0_12px_28px_rgba(0,1,32,0.22)]">
+        <Image
+          src="/brand/contact-spoon.png"
+          alt=""
+          width={258}
+          height={452}
+          className="h-auto w-full"
+        />
+        <nav aria-label="Contact Social Spoon">
+          {spoonItems.map((item) => {
+            const Icon = item.icon
+            const className = cn(
+              "absolute flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-black",
+              inverted && "rotate-180",
+            )
+            if (!item.href) {
+              return (
+                <span
+                  key={item.name}
+                  style={{ top: item.top, left: item.left }}
+                  className={className}
+                  aria-hidden="true"
+                >
+                  <Icon className="size-5" />
+                </span>
+              )
+            }
             return (
-              <span
+              <a
                 key={item.name}
+                href={item.href}
                 style={{ top: item.top, left: item.left }}
-                className={className}
-                aria-hidden="true"
+                className={`${className} transition hover:scale-110 focus-visible:scale-110`}
+                aria-label={
+                  item.external
+                    ? `${item.name} (opens in a new tab)`
+                    : `Email ${SUPPORT_EMAIL}`
+                }
+                {...(item.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : undefined)}
               >
                 <Icon className="size-5" />
-              </span>
+              </a>
             )
-          }
-          return (
-            <a
-              key={item.name}
-              href={item.href}
-              style={{ top: item.top, left: item.left }}
-              className={`${className} transition hover:scale-110 focus-visible:scale-110`}
-              aria-label={
-                item.external
-                  ? `${item.name} (opens in a new tab)`
-                  : `Email ${SUPPORT_EMAIL}`
-              }
-              {...(item.external
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : undefined)}
-            >
-              <Icon className="size-5" />
-            </a>
-          )
-        })}
-      </nav>
+          })}
+        </nav>
+      </div>
     </div>
   )
 }

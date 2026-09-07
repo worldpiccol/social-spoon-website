@@ -110,7 +110,7 @@ export function Navbar() {
                 variant="ghost"
                 size="lg"
                 side="bottom"
-                className="justify-start px-3 py-3 text-base font-normal text-muted-foreground hover:bg-muted hover:text-foreground"
+                className="self-start justify-start px-3 py-3 text-base font-normal text-muted-foreground hover:bg-muted hover:text-foreground"
               >
                 Contact
               </ContactButton>
