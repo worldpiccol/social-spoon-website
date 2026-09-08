@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { CtaSection } from "@/components/cta-section"
 import { FadeIn } from "@/components/fade-in"
 import { FeatureGrid } from "@/components/feature-grid"
@@ -60,6 +61,19 @@ export default function HomePage() {
             </p>
           </FadeIn>
         </div>
+        <figure className="mt-12 lg:mt-16">
+          <Image
+            src="/images/social-spoon-billboard.jpg"
+            alt="A Social Spoon billboard with the headline We are your One-Stop Digital Marketing Agency"
+            width={1664}
+            height={1200}
+            sizes="(min-width: 1152px) 1152px, 100vw"
+            className="h-auto w-full rounded-2xl object-cover shadow-[0_16px_40px_rgba(0,1,32,0.08)]"
+          />
+          <figcaption className="mt-3 text-sm text-muted-foreground">
+            A Social Spoon billboard.
+          </figcaption>
+        </figure>
       </Section>
       <Section>
         <SectionHeading
