@@ -65,19 +65,34 @@ export default function AboutPage() {
               </a>
             </p>
           </FadeIn>
-          <figure className="order-2 xl:order-1 xl:col-span-5">
-            <Image
-              src="/images/about-team.jpg"
-              alt="The Social Spoon team in the studio, wearing branded shirts in front of the company sign"
-              width={1086}
-              height={1105}
-              sizes="(min-width: 1280px) 420px, 100vw"
-              className="h-auto w-full rounded-2xl object-cover shadow-[0_16px_40px_rgba(0,1,32,0.08)]"
-            />
-            <figcaption className="mt-3 text-sm text-muted-foreground">
-              The Social Spoon team.
-            </figcaption>
-          </figure>
+          <div className="order-2 space-y-8 xl:order-1 xl:col-span-5">
+            <figure>
+              <Image
+                src="/images/about-team.jpg"
+                alt="The Social Spoon team in the studio, wearing branded shirts in front of the company sign"
+                width={1086}
+                height={1105}
+                sizes="(min-width: 1280px) 420px, 100vw"
+                className="h-auto w-full rounded-2xl object-cover shadow-[0_16px_40px_rgba(0,1,32,0.08)]"
+              />
+              <figcaption className="mt-3 text-sm text-muted-foreground">
+                The Social Spoon team.
+              </figcaption>
+            </figure>
+            <figure>
+              <Image
+                src="/images/ghana-accra.jpg"
+                alt="A Social Spoon team member holding the Ghana flag in front of Independence Arch in Accra"
+                width={810}
+                height={1080}
+                sizes="(min-width: 1280px) 420px, 100vw"
+                className="h-auto w-full rounded-2xl object-cover shadow-[0_16px_40px_rgba(0,1,32,0.08)]"
+              />
+              <figcaption className="mt-3 text-sm text-muted-foreground">
+                Social Spoon in Accra, Ghana.
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </Section>
       <Section tone="muted">
