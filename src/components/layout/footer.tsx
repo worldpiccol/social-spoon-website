@@ -6,8 +6,6 @@ import {
   legalLinks,
   navLinks,
   SITE_NAME,
-  SITE_SHORT_DESCRIPTION,
-  SITE_TAGLINE,
   SUPPORT_EMAIL,
   SUPPORT_PHONE,
   SUPPORT_WHATSAPP,
@@ -21,11 +19,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-6 lg:grid-cols-12 lg:px-8 lg:py-16">
         <div className="lg:col-span-5">
           <Logo />
-          <p className="mt-4 text-sm tracking-wide text-primary">{SITE_TAGLINE}</p>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-            {SITE_SHORT_DESCRIPTION}
-          </p>
-          <div className="mt-4 flex flex-col items-start gap-2">
+          <div className="mt-6 flex flex-col items-start gap-2">
             <a
               href={SUPPORT_WHATSAPP}
               className="text-sm font-medium text-foreground underline-offset-4 hover:underline"
