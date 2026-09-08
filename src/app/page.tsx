@@ -27,7 +27,7 @@ export default function HomePage() {
           <div className="lg:col-span-5">
             <SectionHeading
               eyebrow="Why Social Spoon"
-              heading="More Than a Service. A Digital Solutions Partner."
+              heading="Your one stop Digital marketing agency."
               description="One company. Multiple digital solutions."
             />
           </div>
