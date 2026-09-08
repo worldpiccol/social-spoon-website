@@ -24,14 +24,3 @@ export const features = [
       "From your first enquiry to completion, our focus remains on providing clear and responsive support.",
   },
 ] as const
-
-export const presenceRoles = [
-  "your storefront",
-  "your community",
-  "your marketing channel",
-  "your source of income",
-  "your brand identity",
-  "your connection to your customers",
-] as const
-
-export const presenceRolesCopy = `${presenceRoles.slice(0, -1).join(", ")}, and ${presenceRoles.at(-1)}`

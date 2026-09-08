@@ -5,7 +5,6 @@ import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
 import { Hero } from "@/components/sections/hero"
 import { Testimonials } from "@/components/testimonials"
-import { presenceRolesCopy } from "@/content/features"
 import { testimonials } from "@/content/testimonials"
 import { pageMetadata } from "@/lib/metadata"
 
@@ -43,15 +42,18 @@ export default function HomePage() {
               a one-size-fits-all solution.
             </p>
             <p>
-              That’s why we take a structured approach to every case —
+              That’s why we take a structured approach to every case,
               understanding the issue, assessing the available options and
-              providing the most appropriate solution for your situation.
+              providing the right solution with precision.
             </p>
             <p>
               We understand that your digital presence is more than just a
               social media page.
             </p>
-            <p>It can be {presenceRolesCopy}.</p>
+            <p>
+              It can be your storefront, your community, source of income, brand
+              identity, and connection to your customers.
+            </p>
             <p>
               That’s why we approach every project with the level of care and
               professionalism it deserves.
