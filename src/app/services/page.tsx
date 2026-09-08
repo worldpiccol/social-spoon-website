@@ -22,12 +22,6 @@ export default function ServicesPage() {
           description="At Social Spoon, we help individuals, creators, brands, and businesses build, manage, and grow their presence across digital platforms. From account recovery and advertising to content creation and digital education, our services are designed to help you get the most out of your online presence."
           headingAs="h1"
         />
-        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          Recovery, advertising, and platform outcomes depend on eligibility
-          and the policies of the relevant third-party platforms. Social Spoon
-          does not guarantee reinstatement, sales, conversions, leads, or
-          advertising results.
-        </p>
         <div className="mt-14">
           <ServiceCatalog />
         </div>

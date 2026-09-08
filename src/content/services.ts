@@ -280,7 +280,7 @@ export const services: Service[] = [
       "A monthly retainer for content planning, posting, basic inbox handling, and optional ads.",
     details: [
       "We handle day-to-day presence on your pages: a content plan, posting, basic inbox handling, and optional ads if you want them included.",
-      "The scope is confirmed after we review the pages. Advertising results are not guaranteed.",
+      "The scope is confirmed after we review the pages.",
     ],
     plans: [
       {

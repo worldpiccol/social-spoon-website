@@ -99,7 +99,7 @@ export const faqItems: FaqItem[] = [
     paragraphs: [
       "Monthly page management is a retainer, quoted after we review the pages.",
       "It typically includes a content plan, posting, basic inbox handling, and optional ads if you want them included.",
-      "The exact scope is agreed before the month starts. Advertising results are not guaranteed.",
+      "The exact scope is agreed before the month starts.",
     ],
   },
   {

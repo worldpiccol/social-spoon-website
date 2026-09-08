@@ -83,7 +83,6 @@ export const navLinks = [
 
 export const legalLinks = [
   { name: "Refund Policy", href: "/refund-policy" },
-  { name: "Terms & Conditions", href: "/terms" },
   { name: "Privacy Policy", href: "/privacy" },
 ] as const;
 
