@@ -89,7 +89,7 @@ export default function AboutPage() {
               width={founder.image.width}
               height={founder.image.height}
               sizes="(min-width: 1024px) 420px, 100vw"
-              className="aspect-[4/5] w-full rounded-2xl object-cover object-[center_82%] shadow-[0_16px_40px_rgba(0,1,32,0.08)]"
+              className="h-auto w-full rounded-2xl object-cover shadow-[0_16px_40px_rgba(0,1,32,0.08)]"
             />
             <figcaption className="mt-3 text-sm text-muted-foreground">
               {founder.name}, {founder.role}.
