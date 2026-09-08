@@ -9,7 +9,7 @@ export const founder = {
     src: "/images/founder-prisca-chukwu.jpg",
     alt: "Miss Prisca Chukwu, founder and CEO of Social Spoon",
     width: 1320,
-    height: 2868,
+    height: 1760,
   },
   bio: [
     "Miss Prisca Chukwu is the founder and CEO of Social Spoon. She started the company in 2023 to help individuals, creators, and businesses navigate digital challenges with a structured, professional approach.",
