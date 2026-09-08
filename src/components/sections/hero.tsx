@@ -2,6 +2,7 @@ import Image from "next/image"
 import { ButtonLink } from "@/components/button-link"
 import { ContactButton } from "@/components/contact-popup"
 import { Container } from "@/components/container"
+import { SITE_TAGLINE } from "@/content/site"
 
 export function Hero() {
   return (
@@ -28,7 +29,7 @@ export function Hero() {
             className="animate-fade-up mt-5 text-4xl font-semibold tracking-tight text-balance text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_28px_rgba(0,0,0,0.85)] sm:text-5xl lg:text-[3.35rem] lg:leading-[1.08]"
             style={{ animationDelay: "80ms" }}
           >
-            Digital Solutions. Account Recovery. Digital Growth.
+            {SITE_TAGLINE}
           </h1>
           <div
             className="animate-fade-up mt-6 space-y-4 text-base leading-relaxed font-medium text-[#ffffff] [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_4px_22px_rgba(0,0,0,0.8)] sm:text-lg"

@@ -25,10 +25,9 @@ export function CtaSection({
               : "mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           }
         >
-          Whether you&apos;re trying to recover/reinstate a disabled Instagram
-          or Facebook account, resolve a digital issue, reach a targeted
-          audience online, or take your online presence to the next level,
-          Social Spoon is here to help.
+          Whether you&apos;re trying to recover/reinstate Meta accounts*,
+          resolve a digital issue, reach a targeted audience online, or take
+          your online presence to the next level, Social Spoon is here to help.
         </p>
         {showServicesCta ? (
           <p
