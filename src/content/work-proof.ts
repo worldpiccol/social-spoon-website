@@ -10,6 +10,13 @@ export type WorkProof = {
 
 export const serviceWorkProof: WorkProof[] = [
   {
+    title: "Disabled Facebook recovery",
+    caption: "Disabled Facebook account reinstated after appeal.",
+    src: "/images/testimonials/disabled-facebook-recovery.jpg",
+    width: 1080,
+    height: 1350,
+  },
+  {
     title: "Page revamp",
     caption: "Instagram profile refreshed with a clearer layout, highlights, and grid.",
     src: "/images/testimonials/page-revamp.jpg",
