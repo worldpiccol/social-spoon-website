@@ -25,9 +25,10 @@ export function CtaSection({
               : "mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           }
         >
-          Whether you’re trying to regain access to an important account,
-          resolve a digital issue, reach a targeted audience, or take your
-          online presence to the next level, Social Spoon is ready to help.
+          Whether you&apos;re trying to recover/reinstate a disabled Instagram
+          or Facebook account, resolve a digital issue, reach a targeted
+          audience online, or take your online presence to the next level,
+          Social Spoon is here to help.
         </p>
         {showServicesCta ? (
           <p
@@ -37,7 +38,8 @@ export function CtaSection({
                 : "mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
             }
           >
-            Explore our services and find the solution that&apos;s right for you.
+            Explore our services and find the solution that&apos;s right
+            for you.
           </p>
         ) : null}
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
