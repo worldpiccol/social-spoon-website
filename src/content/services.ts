@@ -168,14 +168,13 @@ export const services: Service[] = [
       "Help setting up prepaid ad accounts so spend can be funded by card or transfer.",
     details: [
       "We help set up prepaid advertising accounts so campaign spend can be funded by debit card or bank transfer, rather than being blocked by payment method limits.",
-      "Setup requirements depend on the platform and the business. We confirm the steps after an assessment.",
     ],
     plans: [
       {
         name: "Pricing & timeframe",
         items: [
-          "Price: quoted after assessment",
-          "Timeframe: confirmed after we review your setup",
+          "Price: ₦15,000",
+          "Timeframe: 10 working days max",
         ],
       },
     ],
