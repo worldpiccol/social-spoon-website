@@ -193,7 +193,7 @@ export const services: Service[] = [
       "Location, interests, behaviour, and demographics set up so Instagram ads can reach the right people.",
     details: [
       "We set up Instagram audiences using location, interests, behaviour, demographics, and your campaign goal, so ads are pointed at people more likely to respond.",
-      "A short brief is enough to start. We do not guarantee sales, leads, or conversions.",
+      "A short brief is enough to start.",
     ],
     plans: [
       {
