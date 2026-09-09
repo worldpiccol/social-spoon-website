@@ -22,6 +22,19 @@ export function workProofYoutubeId(item: WorkProof) {
 
 export const serviceWorkProof: WorkProof[] = [
   {
+    title: "Express Instagram recovery",
+    caption:
+      "Express Instagram recovery for disabled accounts needed back within a few days.",
+    youtube: "https://youtube.com/shorts/4R7nS9SZ0oo",
+    videoAspect: "portrait",
+  },
+  {
+    title: "Disabled Instagram recovery",
+    caption: "Help recovering a disabled Instagram account.",
+    youtube: "https://youtube.com/shorts/gBwQJfXvrUg",
+    videoAspect: "portrait",
+  },
+  {
     title: "Disabled Facebook recovery",
     caption: "Disabled Facebook account reinstated after appeal.",
     src: "/images/testimonials/disabled-facebook-recovery.jpg",
