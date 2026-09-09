@@ -5,10 +5,10 @@
 export const SITE_NAME = "Social Spoon";
 
 export const SITE_TAGLINE =
-  "Digital Solutions. Meta Accounts Recovery*. Digital Growth.";
+  "Instagram and Facebook Account Recovery | Digital Solutions";
 
 export const SITE_SHORT_DESCRIPTION =
-  "Professional digital solutions for Meta accounts recovery*, social media management, advertising, content creation, and online growth.";
+  "Professional digital solutions for Instagram and Facebook account recovery, social media management, advertising, content creation, and online growth.";
 
 export const SITE_DESCRIPTION =
   "Social Spoon provides professional digital solutions for account recovery assistance, social media management, advertising, content creation and online growth.";
