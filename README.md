@@ -63,4 +63,4 @@ Testimonials stay hidden until real reviews are added to `src/content/testimonia
 
 Contact Us and Get Started open a small spoon/pin next to the button, with links to Instagram, WhatsApp, TikTok, Snapchat, and email. `/contact` is a contact page with the same popup — it does not redirect to the homepage.
 
-Public enquiries: [+234 704 217 4287](https://wa.me/2347042174287) or [support@mysocialspoon.com](mailto:support@mysocialspoon.com).
+Public enquiries: [0916 903 4018](https://wa.me/2349169034018) or [support@mysocialspoon.com](mailto:support@mysocialspoon.com).

@@ -1,3 +1,5 @@
+import { SUPPORT_EMAIL, SUPPORT_PHONE } from "@/content/site"
+
 export type FaqItem = {
   id: string
   question: string
@@ -134,7 +136,7 @@ export const faqItems: FaqItem[] = [
     id: "get-started",
     question: "How do I get started?",
     paragraphs: [
-      "Choose the service that best matches your situation, then use Contact or Get Started to reach Social Spoon on WhatsApp at +234 704 217 4287, Instagram, TikTok, Snapchat, or email support@mysocialspoon.com.",
+      `Choose the service that best matches your situation, then use Contact or Get Started to reach Social Spoon on WhatsApp at ${SUPPORT_PHONE}, Instagram, TikTok, Snapchat, or email ${SUPPORT_EMAIL}.`,
       "Our team can help you understand the available options and requirements.",
     ],
   },

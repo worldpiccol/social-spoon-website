@@ -39,11 +39,11 @@ export const SUPPORT_EMAIL = (
   process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@mysocialspoon.com"
 ).trim();
 
-export const SUPPORT_PHONE = "+234 704 217 4287";
+export const SUPPORT_PHONE = "0916 903 4018";
 
-export const SUPPORT_PHONE_TEL = "tel:+2347042174287";
+export const SUPPORT_PHONE_TEL = "tel:+2349169034018";
 
-export const SUPPORT_WHATSAPP = "https://wa.me/2347042174287";
+export const SUPPORT_WHATSAPP = "https://wa.me/2349169034018";
 
 export const LEGAL_UPDATED = "7 September 2026";
 
