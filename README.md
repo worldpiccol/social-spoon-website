@@ -61,6 +61,6 @@ Testimonials stay hidden until real reviews are added to `src/content/testimonia
 
 ## Contact
 
-Contact Us and Get Started open a small spoon/pin next to the button, with links to Instagram, WhatsApp, TikTok, Snapchat, and email. `/contact` is a contact page with the same popup — it does not redirect to the homepage.
+Contact Us and Get Started open a small spoon/pin next to the button, with links to Instagram, WhatsApp, TikTok, Snapchat, and email. `/contact` is a contact page with the same popup — it does not redirect to the homepage. Proof of work lives on `/testimonials`; add new images in `public/images/testimonials/` and YouTube videos in `src/content/work-proof.ts`.
 
 Public enquiries: [0916 903 4018](https://wa.me/2349169034018) or [support@mysocialspoon.com](mailto:support@mysocialspoon.com).

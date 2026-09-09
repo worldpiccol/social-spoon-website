@@ -1,12 +1,24 @@
+import { parseYouTubeId } from "@/lib/youtube"
+
 export type WorkProof = {
   title: string
   caption: string
-  src: string
-  width: number
-  height: number
+  src?: string
+  width?: number
+  height?: number
+  /**
+   * YouTube video ID or a full YouTube URL (watch, shorts, or youtu.be).
+   * Add new videos here as they arrive.
+   */
+  youtube?: string
+  videoAspect?: "portrait" | "landscape"
 }
 
-/** Add further testimonial graphics here. The services slider will pick them up. */
+export function workProofYoutubeId(item: WorkProof) {
+  return item.youtube ? parseYouTubeId(item.youtube) : null
+}
+
+/** Add further testimonial graphics and YouTube videos here. */
 
 export const serviceWorkProof: WorkProof[] = [
   {

@@ -6,9 +6,11 @@ import { SectionHeading } from "@/components/section-heading"
 export function CtaSection({
   invert = false,
   showServicesCta = true,
+  showTestimonialsCta = true,
 }: {
   invert?: boolean
   showServicesCta?: boolean
+  showTestimonialsCta?: boolean
 }) {
   return (
     <Section tone={invert ? "ink" : "muted"}>
@@ -51,13 +53,26 @@ export function CtaSection({
               See Our Services
             </ButtonLink>
           ) : null}
+          {showTestimonialsCta ? (
+            <ButtonLink
+              href="/testimonials"
+              variant={
+                invert
+                  ? "outline-inverse"
+                  : showServicesCta
+                    ? "outline"
+                    : "default"
+              }
+              className="w-full sm:w-auto"
+            >
+              Testimonials
+            </ButtonLink>
+          ) : null}
           <ContactButton
             variant={
               invert
                 ? "outline-inverse"
-                : showServicesCta
-                  ? "outline"
-                  : "default"
+                : "outline"
             }
             className="w-full sm:w-auto"
           >

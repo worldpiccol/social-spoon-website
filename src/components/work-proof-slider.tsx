@@ -1,9 +1,9 @@
 "use client"
 
 import { useCallback, useRef } from "react"
-import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { WorkProofCard } from "@/components/work-proof-card"
 import type { WorkProof } from "@/content/work-proof"
 
 export function WorkProofSlider({ items }: { items: WorkProof[] }) {
@@ -16,6 +16,10 @@ export function WorkProofSlider({ items }: { items: WorkProof[] }) {
     scroller.scrollBy({ left: distance, behavior: "smooth" })
   }, [])
 
+  if (items.length === 0) {
+    return null
+  }
+
   return (
     <div className="relative">
       <div
@@ -23,25 +27,11 @@ export function WorkProofSlider({ items }: { items: WorkProof[] }) {
         className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {items.map((item) => (
-          <figure
-            key={item.src}
-            className="w-[min(100%,20rem)] shrink-0 snap-start overflow-hidden rounded-2xl bg-white shadow-[0_8px_30px_rgba(0,1,32,0.06)] ring-1 ring-border sm:w-[calc((100%-1.25rem)/2)]"
-          >
-            <Image
-              src={item.src}
-              alt={item.title}
-              width={item.width}
-              height={item.height}
-              sizes="(min-width: 640px) 40vw, 90vw"
-              className="aspect-[4/5] h-auto w-full object-cover object-top"
-            />
-            <figcaption className="space-y-1.5 px-5 py-4">
-              <p className="font-medium text-foreground">{item.title}</p>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {item.caption}
-              </p>
-            </figcaption>
-          </figure>
+          <WorkProofCard
+            key={item.youtube ?? item.src ?? item.title}
+            item={item}
+            className="w-[min(100%,20rem)] shrink-0 snap-start sm:w-[calc((100%-1.25rem)/2)]"
+          />
         ))}
       </div>
       {items.length > 1 ? (

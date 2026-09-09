@@ -57,6 +57,13 @@ export function Hero() {
             >
               See Our Services
             </ButtonLink>
+            <ButtonLink
+              href="/testimonials"
+              variant="outline-inverse"
+              className="w-full border-white text-white hover:bg-white/10 sm:w-auto"
+            >
+              Testimonials
+            </ButtonLink>
             <ContactButton
               variant="outline-inverse"
               className="w-full border-white text-white hover:bg-white/10 sm:w-auto"

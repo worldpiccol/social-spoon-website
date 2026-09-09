@@ -1,3 +1,4 @@
+import { ButtonLink } from "@/components/button-link"
 import { ContactButton } from "@/components/contact-popup"
 import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
@@ -56,8 +57,11 @@ export default function ContactPage() {
           </a>
         </p>
         <SocialLinks />
-        <div className="pt-2">
+        <div className="flex flex-col gap-3 pt-2 sm:flex-row">
           <ContactButton>Contact Us</ContactButton>
+          <ButtonLink href="/testimonials" variant="outline" className="w-full sm:w-auto">
+            Testimonials
+          </ButtonLink>
         </div>
       </div>
     </Section>

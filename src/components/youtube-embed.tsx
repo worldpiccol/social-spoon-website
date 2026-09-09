@@ -4,15 +4,18 @@ export function YoutubeEmbed({
   videoId,
   title,
   className,
+  aspect = "portrait",
 }: {
   videoId: string
   title: string
   className?: string
+  aspect?: "portrait" | "landscape"
 }) {
   return (
     <div
       className={cn(
-        "relative aspect-[9/16] overflow-hidden rounded-xl bg-ink ring-1 ring-border",
+        "relative overflow-hidden rounded-xl bg-ink ring-1 ring-border",
+        aspect === "landscape" ? "aspect-video" : "aspect-[9/16]",
         className,
       )}
     >

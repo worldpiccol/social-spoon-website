@@ -4,6 +4,7 @@ import { FeatureGrid } from "@/components/feature-grid"
 import { Section } from "@/components/section"
 import { SectionHeading } from "@/components/section-heading"
 import { Hero } from "@/components/sections/hero"
+import { ServiceTestimonials } from "@/components/service-testimonials"
 import { Testimonials } from "@/components/testimonials"
 import { testimonials } from "@/content/testimonials"
 import { pageMetadata } from "@/lib/metadata"
@@ -99,6 +100,7 @@ export default function HomePage() {
         </div>
       </Section>
       <Testimonials items={testimonials} />
+      <ServiceTestimonials />
       <CtaSection />
     </>
   )
