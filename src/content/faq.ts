@@ -16,6 +16,22 @@ export const faqItems: FaqItem[] = [
     ],
   },
   {
+    id: "instagram-connected-facebook",
+    question:
+      "If my Instagram account was taken down because of my connected Facebook account, can you get it back?",
+    paragraphs: [
+      "Yes, we can assist with cases where an Instagram account has been disabled or restricted in connection with a disabled Facebook account. We assess the account situation and work through the appropriate recovery and appeal process.",
+    ],
+  },
+  {
+    id: "instagram-connected-instagram",
+    question:
+      "If my Instagram account was taken down because of another connected Instagram account that was also disabled, can you get it back?",
+    paragraphs: [
+      "Yes, we can assess and assist with Instagram accounts affected by another disabled or connected Instagram account. We review the situation and determine the appropriate recovery approach based on the circumstances of the accounts.",
+    ],
+  },
+  {
     id: "recovery-time",
     question: "How long does account recovery take?",
     paragraphs: [
